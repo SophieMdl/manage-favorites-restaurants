@@ -22,7 +22,7 @@ const app = express()
 // systeme authentification
 const secret = 'something unbelievable'
 
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 // autorisation
@@ -39,14 +39,16 @@ app.use(session({
   secret,
   saveUninitialized: false,
   resave: true,
-  store: new FileStore({ secret })
+  store: new FileStore({secret})
 }))
 
-// login middleware
+app.use((err, req, res, next) => {
+  if (err) {
+    res.json({message: err.message})
+    console.error(err)
+  }
 
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`, { user: req.session.user, cookie: req.headers.cookie })
-  next()
+  next(err)
 })
 
 // upload images
@@ -113,7 +115,7 @@ app.get('/restaurants', (request, response) => {
   const filePath = path.join(__dirname, '../mocks/restos.json')
   // promise
   readFile(filePath)
-    // traitement de la donnéee
+  // traitement de la donnéee
     .then(data => {
       response.header('Content-Type', 'application/json; charset=utf-8')
       response.end(data)
@@ -121,7 +123,6 @@ app.get('/restaurants', (request, response) => {
     // gestion de l'erreur
     .catch(err => {
       response.status(404).end('not found')
-      // console.log pour éviter une erreur de lint
       console.log(err)
     })
 })
@@ -130,7 +131,7 @@ app.get('/categories', (request, response) => {
   const filePath2 = path.join(__dirname, '../mocks/categories.json')
   // promise
   readFile(filePath2)
-    // traitement de la donnéee
+  // traitement de la donnéee
     .then(data => {
       response.header('Content-Type', 'application/json; charset=utf-8')
       response.end(data)
@@ -138,7 +139,6 @@ app.get('/categories', (request, response) => {
     // gestion de l'erreur
     .catch(err => {
       response.status(404).end('not found')
-      // console.log pour éviter une erreur de lint
       console.log(err)
     })
 })
@@ -146,12 +146,11 @@ app.get('/categories', (request, response) => {
 app.post('/restaurants', upload.single('url'), (request, response, next) => {
   const id = Math.random().toString(36).slice(2).padEnd(11, '0')
   const filePath = path.join(__dirname, '../mocks/restos.json')
-  console.log(request.file)
 
   // 1 Lire le fichier et convertir le buffer en string (utf8)
   readFile(filePath, 'utf8')
 
-    // 2 convertir la string en objet JS
+  // 2 convertir la string en objet JS
     .then(JSON.parse)
     .then(restos => {
       // 3 ajouter le nouveau bloc en array
@@ -185,26 +184,21 @@ app.post('/restaurants', upload.single('url'), (request, response, next) => {
 app.post('/like', (req, res, next) => {
   const filePath = path.join(__dirname, '../mocks/restos.json')
   const idUser = req.body.idUser
-  const idRestau = Number(req.body.idResto)
+  const idRestau = req.body.idResto
   readFile(filePath, 'utf8')
     .then(JSON.parse)
-    .then(restau => {
-      restau.forEach(element => {
-        if (idRestau === element.id) {
-          const index = element.like.findIndex(el => {
-            return el === idUser
-          })
-          if (index !== -1) {
-            element.like.splice(index, 1)
-          } else {
-            element.like.push(idUser)
-          }
-        }
-      })
-      const content = JSON.stringify(restau, null, 2)
-      return writeFile(filePath, content, 'utf8')
+    .then(restaus => {
+      let restau = restaus.find(element => idRestau === element.id.toString())
+
+      const index = restau.like.findIndex(el => el === idUser)
+      if (index !== -1) {
+        restau.like.splice(index, 1)
+      } else {
+        restau.like.push(idUser)
+      }
+      return writeFile(filePath, JSON.stringify(restaus, null, 2), 'utf8')
     })
-    .then(() => res.end('OKaydac'))
+    .then(res.end('ok'))
     .catch(next)
 })
 
@@ -220,11 +214,11 @@ app.post('/sign-in', (req, res, next) => {
 
   // Error handling
   if (!user) {
-    return res.json({ error: 'User not found' })
+    return res.json({error: 'User not found'})
   }
 
   if (user.password !== req.body.password) {
-    return res.json({ error: 'Wrong password' })
+    return res.json({error: 'Wrong password'})
   }
 
   // else, set the user into the session
@@ -240,15 +234,6 @@ app.get('/sign-out', (req, res, next) => {
   req.session.user = {}
 
   res.json('ok')
-})
-
-app.use((err, req, res, next) => {
-  if (err) {
-    res.json({ message: err.message })
-    console.error(err)
-  }
-
-  next(err)
 })
 
 // port ecouter
