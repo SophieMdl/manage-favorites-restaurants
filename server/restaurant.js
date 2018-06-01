@@ -78,7 +78,7 @@ router.post('/restaurant', upload.single('url'), (request, response, next) => {
 })
 
 router.post('/like', (req, res, next) => {
-  if(req.body.idUser=== undefined || req.body.idResto === undefined ) {
+  if(req.session.user=== undefined || req.body.idResto === undefined ) {
     res.status(404).end('not found')
     return;
   }
@@ -87,11 +87,11 @@ router.post('/like', (req, res, next) => {
     .then(restaus => {
       let restau = restaus.find(element => req.body.idResto === element.id.toString())
 
-      const index = restau.like.findIndex(el => el === req.body.idUser)
+      const index = restau.like.findIndex(el => el === req.session.user.id )
       if (index !== -1) {
         restau.like.splice(index, 1)
       } else {
-        restau.like.push(req.body.idUser)
+        restau.like.push(req.session.user.id)
       }
       return writeFile(filePath, JSON.stringify(restaus, null, 2), 'utf8')
     })
