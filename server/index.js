@@ -46,7 +46,6 @@ app.get('/', (request, response) => {
   const currentUser = request.session.user || {}
   response.json(currentUser)
 })
-
 app.use('', restaurant)
 app.use('', category)
 app.use('', user)

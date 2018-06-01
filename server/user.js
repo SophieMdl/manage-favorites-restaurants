@@ -8,6 +8,8 @@ const util = require('util')
 const readFile = util.promisify(fs.readFile)
 const writeFile = util.promisify(fs.writeFile)
 
+const filePath = path.join(__dirname, '../mocks/user.json')
+
 router.get('/profil/:id', (request, response) => {
   const users = require('../mocks/user.json')
   const id = Number(request.params.id)
@@ -46,7 +48,6 @@ router.get('/sign-out', (req, res, next) => {
 
 router.post('/modify-profil/:id', (request, response, next) => {
   const id = Number(request.params.id)
-  const filePath = path.join(__dirname, '../mocks/user.json')
   readFile(filePath, 'utf8')
     .then(JSON.parse)
     .then(user => {
@@ -64,7 +65,6 @@ router.post('/modify-profil/:id', (request, response, next) => {
 })
 
 router.post('/register', (request, response, next) => {
-  const filePath = path.join(__dirname, '../mocks/user.json')
   readFile(filePath, 'utf8')
     .then(JSON.parse)
     .then(user => {

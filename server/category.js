@@ -5,12 +5,13 @@ const path = require('path')
 const fs = require('fs')
 const util = require('util')
 
+const filePath = path.join(__dirname, '../mocks/categories.json')
 const readFile = util.promisify(fs.readFile)
 
 router.get('/categories', (request, response) => {
-  const filePath2 = path.join(__dirname, '../mocks/categories.json')
+
   // promise
-  readFile(filePath2)
+  readFile(filePath)
   // traitement de la donnéee
     .then(data => {
       response.header('Content-Type', 'application/json; charset=utf-8')

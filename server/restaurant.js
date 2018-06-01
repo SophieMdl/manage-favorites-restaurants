@@ -9,6 +9,7 @@ const util = require('util')
 const readFile = util.promisify(fs.readFile)
 const writeFile = util.promisify(fs.writeFile)
 
+const filePath = path.join(__dirname, '../mocks/restos.json')
 // upload images
 const publicImagesPath = path.join(__dirname, '../client/images/restaurants')
 
@@ -27,7 +28,6 @@ const upload = multer({
 })
 
 router.get('/restaurants', (request, response) => {
-  const filePath = path.join(__dirname, '../mocks/restos.json')
   // promise
   readFile(filePath)
   // traitement de la donnéee
@@ -44,11 +44,8 @@ router.get('/restaurants', (request, response) => {
 
 router.post('/restaurant', upload.single('url'), (request, response, next) => {
   const id = Math.random().toString(36).slice(2).padEnd(11, '0')
-  const filePath = path.join(__dirname, '../mocks/restos.json')
-
   // 1 Lire le fichier et convertir le buffer en string (utf8)
   readFile(filePath, 'utf8')
-
   // 2 convertir la string en objet JS
     .then(JSON.parse)
     .then(restos => {
@@ -81,19 +78,20 @@ router.post('/restaurant', upload.single('url'), (request, response, next) => {
 })
 
 router.post('/like', (req, res, next) => {
-  const filePath = path.join(__dirname, '../mocks/restos.json')
-  const idUser = req.body.idUser
-  const idRestau = req.body.idResto
+  if(req.body.idUser=== undefined || req.body.idResto === undefined ) {
+    res.status(404).end('not found')
+    return;
+  }
   readFile(filePath, 'utf8')
     .then(JSON.parse)
     .then(restaus => {
-      let restau = restaus.find(element => idRestau === element.id.toString())
+      let restau = restaus.find(element => req.body.idResto === element.id.toString())
 
-      const index = restau.like.findIndex(el => el === idUser)
+      const index = restau.like.findIndex(el => el === req.body.idUser)
       if (index !== -1) {
         restau.like.splice(index, 1)
       } else {
-        restau.like.push(idUser)
+        restau.like.push(req.body.idUser)
       }
       return writeFile(filePath, JSON.stringify(restaus, null, 2), 'utf8')
     })
