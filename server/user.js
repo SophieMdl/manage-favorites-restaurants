@@ -11,16 +11,24 @@ const writeFile = util.promisify(fs.writeFile)
 const filePath = path.join(__dirname, '../mocks/user.json')
 
 router.get('/profil/:id', (request, response) => {
-  const users = require('../mocks/user.json')
-  const id = Number(request.params.id)
-  const profil = users.find(profil => profil.id === id)
+  const users = require(filePath)
+  const profil = users.find(profil => profil.id === Number(request.params.id))
+  sendUser(response, profil)
+})
+
+router.get('/my-profil', (request, response) => {
+  if (request.session.user === undefined || request.session.user.id === undefined || request.session.user === 0) {
+    return response.status(404).end('not found')
+  }
+  const users = require(filePath)
+  const profil = users.find(profil => profil.id === request.session.user.id)
   response.json(profil)
 })
 
 router.post('/sign-in', (req, res, next) => {
-  const users = require('../mocks/user.json')
+  const users = require(filePath)
   // does user exists ?
-  console.log('Login : ',req.body.login, 'Mot de passe : '+req.body.password)
+  console.log('Login : ', req.body.login, 'Mot de passe : ' + req.body.password)
   const user = users.find(u => req.body.login === u.email)
 
   // Error handling
@@ -34,7 +42,7 @@ router.post('/sign-in', (req, res, next) => {
 
   // else, set the user into the session
   req.session.user = user
-  console.log('Connexion : ',user)
+  console.log('Connexion : ', user)
   return sendCurrentUser(req, res)
 })
 
@@ -48,7 +56,10 @@ router.get('/sign-out', (req, res) => {
 })
 
 router.post('/modify-profil/:id', (request, response, next) => {
-  const id = Number(request.params.id)
+  if (request.session.user === undefined || request.session.user.id === undefined || request.session.user === 0) {
+    return response.status(404).end('not found')
+  }
+  const id = request.session.user.id
   readFile(filePath, 'utf8')
     .then(JSON.parse)
     .then(user => {
@@ -92,16 +103,26 @@ module.exports = router
  * @returns {*}
  */
 function sendCurrentUser (req, res) {
-  const user = (req.session.user && req.session.user.id >0 ) ? {
-    name: req.session.user.name,
-    email: req.session.user.email,
-    id: req.session.user.id,
-    createdAt: req.session.user.createdAt
-  } : {}
-  if(req.session.user && req.session.user.id >0 ){
-    console.log(req.session.user.id )
+  const user = (req.session.user && req.session.user.id > 0) ? req.session.user : {}
+  if (req.session.user && req.session.user.id > 0) {
+    console.log(req.session.user.id)
   }
   console.log('sendCurrentUser', user)
-  res.json(user)
-  return res
+  return sendUser(res, user)
+}
+
+/**
+ * Retourne l'utilisateur au client
+ * @param res
+ * @param user
+ */
+function sendUser (res, user) {
+  if (user === undefined) return res.json({})
+  const userData = {
+    name: user.name,
+    email: user.email,
+    id: user.id,
+    createdAt: user.createdAt
+  }
+  return res.json(userData)
 }

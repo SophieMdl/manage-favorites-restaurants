@@ -5,7 +5,8 @@ const params = new URLSearchParams(window.location.search)
 const id = params.get('id')
 const profilElement = document.getElementById('mon-profil')
 
-window.fetch(`http://localhost:3333/profil/${id}`)
+//window.fetch(`http://localhost:3333/profil/${id}`)
+window.fetch('http://localhost:3333/my-profil', {credentials: 'include'} )
   .then(res => res.json())
   .then(users => {
     profilElement.innerHTML = profilPage(users)
