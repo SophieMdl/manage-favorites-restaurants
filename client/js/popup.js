@@ -59,7 +59,7 @@ export const showModal = () => {
       .then(res => res.json())
       .then(handleAuth)
 
-    window.fetch('http://localhost:3333/', { 'credentials': 'include' })
+    window.fetch('http://localhost:3333/', { credentials: 'include' })
       .then(res => res.json())
       .then(handleAuth)
   })
