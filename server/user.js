@@ -20,6 +20,7 @@ router.get('/profil/:id', (request, response) => {
 router.post('/sign-in', (req, res, next) => {
   const users = require('../mocks/user.json')
   // does user exists ?
+  console.log('Login : ',req.body.login, 'Mot de passe : '+req.body.password)
   const user = users.find(u => req.body.login === u.email)
 
   // Error handling
@@ -33,17 +34,17 @@ router.post('/sign-in', (req, res, next) => {
 
   // else, set the user into the session
   req.session.user = user
-  res.json(user)
+  console.log('Connexion : ',user)
+  return sendCurrentUser(req, res)
 })
 
 router.get('/session', (req, res, next) => {
-  res.json(req.session.user || {})
+  return sendCurrentUser(req, res)
 })
 
-router.get('/sign-out', (req, res, next) => {
+router.get('/sign-out', (req, res) => {
   req.session.user = {}
-
-  res.json('ok')
+  return sendCurrentUser(req, res)
 })
 
 router.post('/modify-profil/:id', (request, response, next) => {
@@ -82,6 +83,25 @@ router.post('/register', (request, response, next) => {
     .catch(next)
 })
 
-module.exports = router;
+module.exports = router
 
-
+/**
+ * Crée une réponse JSON avec l'utilisateur courant et le retourne
+ * @param req Requête de la page
+ * @param res Réponse de la page
+ * @returns {*}
+ */
+function sendCurrentUser (req, res) {
+  const user = (req.session.user && req.session.user.id >0 ) ? {
+    name: req.session.user.name,
+    email: req.session.user.email,
+    id: req.session.user.id,
+    createdAt: req.session.user.createdAt
+  } : {}
+  if(req.session.user && req.session.user.id >0 ){
+    console.log(req.session.user.id )
+  }
+  console.log('sendCurrentUser', user)
+  res.json(user)
+  return res
+}

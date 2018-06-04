@@ -17,7 +17,7 @@ app.use(bodyParser.json())
 
 // Autorisation
 app.use((request, response, next) => {
-  response.header('Access-Control-Allow-Origin', '*')
+  response.header('Access-Control-Allow-Origin', request.headers.origin)
   response.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
   response.header('Access-Control-Allow-Credentials', 'true') // important
   next()
