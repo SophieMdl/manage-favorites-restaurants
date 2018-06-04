@@ -6,7 +6,6 @@ export const scriptComponentsConnexion = () => {
   window.fetch('http://localhost:3333/session', { credentials: 'include' })
     .then(res => res.json())
     .then(user => {
-      console.log(user)
       user.name
         ? btnConnexion.innerHTML = isConnected(user)
         : btnConnexion.innerHTML = isNotConnected
