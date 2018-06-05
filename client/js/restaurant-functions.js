@@ -1,4 +1,5 @@
 import { showModal } from './popup.js'
+import { getCurrentUser } from './user.js'
 
 export const restaurantScale = emplacement => {
   const columns = emplacement.getElementsByClassName('column')
@@ -47,8 +48,7 @@ export const restaurantScale = emplacement => {
 export const restaurantLikes = () => {
   const btnLikes = document.getElementsByClassName('like-wrapper')
 
-  window.fetch('http://localhost:3333/session', { credentials: 'include' })
-    .then(res => res.json())
+  getCurrentUser()
     .then(user => {
       for (let like of btnLikes) {
         like.addEventListener('click', (e) => {
@@ -62,7 +62,7 @@ export const restaurantLikes = () => {
                 'Content-Type': 'application/json',
               },
               body: JSON.stringify({
-                idResto:  e.target.getAttribute('id')
+                idResto: e.target.getAttribute('id')
               })
             })
               .then(res => window.location.reload())

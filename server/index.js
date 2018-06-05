@@ -26,11 +26,17 @@ app.use((request, response, next) => {
 // Iinitialisation gestionnaire de sessions
 app.use(session({
   secret,
-  saveUninitialized: false,
+  saveUninitialized: true,
   resave: true,
   store: new FileStore({secret}),
-  cookie: {sameSite: false}
+  cookie: {
+    domain:'127.0.0.1:5000'
+  }
 }))
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`, { user: req.session.user, cookie: req.headers.cookie })
+  next()
+})
 
 app.use((err, req, res, next) => {
   if (err) {
