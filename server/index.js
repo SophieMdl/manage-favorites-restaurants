@@ -28,7 +28,8 @@ app.use(session({
   secret,
   saveUninitialized: false,
   resave: true,
-  store: new FileStore({secret})
+  store: new FileStore({secret}),
+  cookie: {sameSite: false}
 }))
 
 app.use((err, req, res, next) => {
