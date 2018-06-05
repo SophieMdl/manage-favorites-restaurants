@@ -1,15 +1,12 @@
-/* global URLSearchParams */
-import {profilPage} from './composants/user.js'
+import { profilPage } from './composants/user.js'
 
-const params = new URLSearchParams(window.location.search)
-const id = params.get('id')
 const profilElement = document.getElementById('mon-profil')
 
-//window.fetch(`http://localhost:3333/profil/${id}`)
-window.fetch('http://localhost:3333/my-profil', {credentials: 'include'} )
+window.fetch('http://localhost:3333/my-profil', {credentials: 'include'})
   .then(res => res.json())
-  .then(users => {
-    profilElement.innerHTML = profilPage(users)
+  .then(user => {
+    console.log(user)
+    profilElement.innerHTML = profilPage(user)
 
     const validate = document.getElementById('valid')
     validate.disabled = true
@@ -28,11 +25,12 @@ window.fetch('http://localhost:3333/my-profil', {credentials: 'include'} )
       e.preventDefault()
       const email = document.getElementById('mail-input').value
       const password = document.getElementById('password-input').value
-      window.fetch(`http://localhost:3333/modify-profil/${id}`, {
+      window.fetch(`http://localhost:3333/update-my-profil/`, {
         method: 'post',
         headers: {
           'Content-Type': 'application/json'
         },
+        credentials: 'include',
         body: JSON.stringify({
           email: email,
           password: password

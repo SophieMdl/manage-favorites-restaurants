@@ -10,11 +10,6 @@ const writeFile = util.promisify(fs.writeFile)
 
 const filePath = path.join(__dirname, '../mocks/user.json')
 
-router.get('/profil/:id', (request, response) => {
-  const users = require(filePath)
-  const profil = users.find(profil => profil.id === Number(request.params.id))
-  sendUser(response, profil)
-})
 
 router.get('/my-profil', (request, response) => {
   if (request.session.user === undefined || request.session.user.id === undefined || request.session.user === 0) {
@@ -22,6 +17,7 @@ router.get('/my-profil', (request, response) => {
   }
   const users = require(filePath)
   const profil = users.find(profil => profil.id === request.session.user.id)
+  if (profil === undefined) return response.status(404).end('not found')
   response.json(profil)
 })
 
@@ -55,24 +51,20 @@ router.get('/sign-out', (req, res) => {
   return sendCurrentUser(req, res)
 })
 
-router.post('/modify-profil/:id', (request, response, next) => {
+router.post('/update-my-profil', (request, response, next) => {
   if (request.session.user === undefined || request.session.user.id === undefined || request.session.user === 0) {
     return response.status(404).end('not found')
   }
-  const id = request.session.user.id
-  readFile(filePath, 'utf8')
-    .then(JSON.parse)
-    .then(user => {
-      user.forEach(element => {
-        if (id === element.id) {
-          element.email = request.body.email
-          element.password = request.body.password
-        }
-      })
-      const content = JSON.stringify(user, null, 2)
-      return writeFile(filePath, content, 'utf8')
-    })
-    .then(() => response.end('OKay'))
+  const users = require(filePath, 'utf8')
+  const user = users.find(element => request.session.user.id === element.id)
+  if (user === undefined) return response.status(404).end('not found')
+
+  user.email = request.body.email
+  user.password = request.body.password
+
+  const content = JSON.stringify(users, null, 2)
+  return writeFile(filePath, content, 'utf8')
+    .then(() => response.end('Ok'))
     .catch(next)
 })
 
@@ -103,10 +95,13 @@ module.exports = router
  * @returns {*}
  */
 function sendCurrentUser (req, res) {
+  //req.session.reload()
   const user = (req.session.user && req.session.user.id > 0) ? req.session.user : {}
   if (req.session.user && req.session.user.id > 0) {
     console.log(req.session.user.id)
   }
+  //req.session.save();
+  console.log('req.session', req.session, req.session.id)
   console.log('sendCurrentUser', user)
   return sendUser(res, user)
 }
