@@ -25,13 +25,15 @@ app.use((request, response, next) => {
 
 // Iinitialisation gestionnaire de sessions
 app.use(session({
-  secret,
-  saveUninitialized: true,
+  genid: (req) => {
+    console.log('Inside the session middleware')
+    console.log(req.sessionID)
+    return Math.random().toString(36).slice(2).padEnd(11, '0')
+  },
+  store: new FileStore(),
+  secret: 'keyboard cat',
   resave: true,
-  store: new FileStore({secret}),
-  cookie: {
-    domain:'127.0.0.1:5000'
-  }
+  saveUninitialized: true
 }))
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`, { user: req.session.user, cookie: req.headers.cookie })
