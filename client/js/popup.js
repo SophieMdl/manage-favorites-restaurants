@@ -53,13 +53,13 @@ export const showModal = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      'credentials': 'include', // Always send user credentials (cookies, basic http auth, etc..), even for cross-origin calls.
+      credentials: 'include', // Always send user credentials (cookies, basic http auth, etc..), even for cross-origin calls.
       body: JSON.stringify(credentials)
     })
       .then(res => res.json())
       .then(handleAuth)
 
-    window.fetch('http://localhost:3333/', { 'credentials': 'include' })
+    window.fetch('http://localhost:3333/', { credentials: 'include' })
       .then(res => res.json())
       .then(handleAuth)
   })
