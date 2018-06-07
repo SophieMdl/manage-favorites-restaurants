@@ -4,6 +4,10 @@ const modalConnexion = document.getElementById('popup-cnx')
 export const showModal = () => {
   modalConnexion.style.display = 'block'
 }
+
+const hideModal = () => {
+  modalConnexion.style.display = 'none'
+}
 document.addEventListener('DOMContentLoaded', function (event) {
   initModal()
 })
@@ -41,13 +45,13 @@ export const initModal = () => {
       })
     }).then(res => res.json())
       .then(res => emailInput.setCustomValidity((res) ? '' : 'Ce email est déjà utilisé.'))
-    })
+  })
 
   // formulaire d'inscription
   document.getElementById('form-register').addEventListener('submit', event => {
     event.preventDefault()
     let name = document.getElementById('register-name').value.charAt(0).toUpperCase() + document.getElementById('register-name').value.substring(1).toLowerCase()
-    console.log(name)
+
     window.fetch('http://localhost:3333/register', {
       method: 'post',
       headers: {
@@ -59,6 +63,7 @@ export const initModal = () => {
         password: passwordInput.value
       })
     })
+      .then(res => hideModal())
   })
 
   signInForm.addEventListener('submit', e => {
@@ -91,6 +96,6 @@ export const initModal = () => {
   })
 
   closePopup.addEventListener('click', () => {
-    modalConnexion.style.display = 'none'
+    hideModal()
   })
 }
