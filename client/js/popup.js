@@ -35,7 +35,7 @@ export const initModal = () => {
   })
 
   emailInput.addEventListener('blur', event => {
-    window.fetch('http://localhost:3333/checkEmail', {
+    window.fetch('http://localhost:3333/check-email', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'

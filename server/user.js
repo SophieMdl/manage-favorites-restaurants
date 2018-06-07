@@ -89,7 +89,7 @@ router.post('/register', (request, response, next) => {
     .catch(next)
 })
 
-router.post('/checkEmail', (request, response, next) => {
+router.post('/check-email', (request, response, next) => {
   readFile(filePath, 'utf8')
     .then(JSON.parse)
     .then(users => {
@@ -145,6 +145,7 @@ function updateDataUser (user) {
   let users = require(filePath)
   let userToUpdate = users.find(element => element.id === user.id)
   if (userToUpdate === undefined) return null
+
 
   for (const prop in user) {
     userToUpdate[prop] = user[prop]
