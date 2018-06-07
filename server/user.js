@@ -35,10 +35,14 @@ router.post('/sign-in', (req, res, next) => {
     return res.json({error: 'Wrong password'})
   }
 
+  user.previousConnection = (user.lastConnection) ? user.lastConnection : null
+  user.lastConnection = Date.now()
+
   // else, set the user into the session
   req.session.user = user
   console.log('Connexion : ', user)
-  return sendCurrentUser(req, res)
+  sendCurrentUser(req, res)
+  updateDataUser(user)
 })
 
 router.get('/session', (req, res, next) => {
@@ -125,7 +129,27 @@ function sendUser (res, user) {
     name: user.name,
     email: user.email,
     id: user.id,
-    createdAt: user.createdAt
+    createdAt: user.createdAt,
+    previousConnection: (user.previousConnection) ? user.previousConnection : null,
+    lastConnection: (user.lastConnection) ? user.lastConnection : null
   }
   return res.json(userData)
+}
+
+/**
+ * Met à jour l'utilisateur courant dans la session
+ * @param user
+ * @returns {*}
+ */
+function updateDataUser (user) {
+  let users = require(filePath)
+  let userToUpdate = users.find(element => element.id === user.id)
+  if (userToUpdate === undefined) return null
+
+  for (const prop in user) {
+    userToUpdate[prop] = user[prop]
+  }
+
+  const content = JSON.stringify(users, null, 2)
+  return writeFile(filePath, content, 'utf8')
 }
