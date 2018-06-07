@@ -16,24 +16,38 @@ export const initModal = () => {
   const signInForm = document.getElementById('form-connect')
   const closePopup = document.getElementById('close-popup')
   const errorMessage = 'Les 2 mots de passe ne correspondent pas'
+  const emailInput = document.getElementById('register-email')
 
   passwordConfirmInput.addEventListener('input', event => {
-    if (passwordConfirmInput.value !== passwordInput.value) {
-      passwordConfirmInput.setCustomValidity(errorMessage)
-    }
+    passwordConfirmInput.setCustomValidity(
+      (passwordConfirmInput.value !== passwordInput.value) ? errorMessage : ''
+    )
   })
 
   passwordInput.addEventListener('input', event => {
-    if (passwordConfirmInput.value.lenght > 0 && passwordConfirmInput.value !== passwordInput.value) {
-      passwordConfirmInput.setCustomValidity(errorMessage)
-    }
+    passwordConfirmInput.setCustomValidity(
+      (passwordConfirmInput.value !== passwordInput.value) ? errorMessage : ''
+    )
   })
+
+  emailInput.addEventListener('blur', event => {
+    window.fetch('http://localhost:3333/checkEmail', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: emailInput.value,
+      })
+    }).then(res => res.json())
+      .then(res => emailInput.setCustomValidity((res) ? '' : 'Ce email est déjà utilisé.'))
+    })
 
   // formulaire d'inscription
   document.getElementById('form-register').addEventListener('submit', event => {
     event.preventDefault()
     let name = document.getElementById('register-name').value.charAt(0).toUpperCase() + document.getElementById('register-name').value.substring(1).toLowerCase()
-
+    console.log(name)
     window.fetch('http://localhost:3333/register', {
       method: 'post',
       headers: {
@@ -41,7 +55,7 @@ export const initModal = () => {
       },
       body: JSON.stringify({
         name: name,
-        email: document.getElementById('register-email').value,
+        email: emailInput.value,
         password: passwordInput.value
       })
     })

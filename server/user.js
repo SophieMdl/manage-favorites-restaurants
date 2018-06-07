@@ -10,7 +10,6 @@ const writeFile = util.promisify(fs.writeFile)
 
 const filePath = path.join(__dirname, '../mocks/user.json')
 
-
 router.get('/my-profil', (request, response) => {
   if (request.session.user === undefined || request.session.user.id === undefined || request.session.user === 0) {
     return response.status(404).end('not found')
@@ -84,6 +83,15 @@ router.post('/register', (request, response, next) => {
     })
     .then(() => response.end('OK'))
     .catch(next)
+})
+
+router.post('/checkEmail', (request, response, next) => {
+  readFile(filePath, 'utf8')
+    .then(JSON.parse)
+    .then(users => {
+      const user = users.find(element => element.email.trim().toLowerCase() === request.body.email.trim().toLowerCase())
+      return response.json(user === undefined)
+    })
 })
 
 module.exports = router
