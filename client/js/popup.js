@@ -1,24 +1,39 @@
+const modalConnexion = document.getElementById('popup-cnx')
+
 /* ****** GESTION MODAL ******* */
 export const showModal = () => {
-  const showModal = document.getElementById('popup-cnx')
+  modalConnexion.style.display = 'block'
+}
+document.addEventListener('DOMContentLoaded', function (event) {
+  initModal()
+})
 
-  showModal.style.display = 'block'
+export const initModal = () => {
+
+  const passwordInput = document.getElementById('register-psw')
+  const passwordConfirmInput = document.getElementById('confirm-psw')
+  const messageElement = document.getElementById('message')
+  const signInForm = document.getElementById('form-connect')
   const closePopup = document.getElementById('close-popup')
-  closePopup.addEventListener('click', () => {
-    showModal.style.display = 'none'
+  const errorMessage = 'Les 2 mots de passe ne correspondent pas'
+
+  passwordConfirmInput.addEventListener('input', event => {
+    if (passwordConfirmInput.value !== passwordInput.value) {
+      passwordConfirmInput.setCustomValidity(errorMessage)
+    }
   })
+
+  passwordInput.addEventListener('input', event => {
+    if (passwordConfirmInput.value.lenght > 0 && passwordConfirmInput.value !== passwordInput.value) {
+      passwordConfirmInput.setCustomValidity(errorMessage)
+    }
+  })
+
   // formulaire d'inscription
   document.getElementById('form-register').addEventListener('submit', event => {
     event.preventDefault()
     let name = document.getElementById('register-name').value.charAt(0).toUpperCase() + document.getElementById('register-name').value.substring(1).toLowerCase()
-    const email = document.getElementById('register-email').value
-    const password = document.getElementById('register-psw').value
-    const confirmpsw = document.getElementById('confirm-psw')
 
-    if (password !== confirmpsw.value) {
-      confirmpsw.setCustomValidity('Your passwords do not match')
-      return
-    }
     window.fetch('http://localhost:3333/register', {
       method: 'post',
       headers: {
@@ -26,23 +41,20 @@ export const showModal = () => {
       },
       body: JSON.stringify({
         name: name,
-        email: email,
-        password: password
+        email: document.getElementById('register-email').value,
+        password: passwordInput.value
       })
     })
   })
-  // formulaire de connection
-  const messageElement = document.getElementById('message')
-  const signInForm = document.getElementById('form-connect')
-
-  const handleAuth = res => {
-    // handle errors
-    messageElement.innerHTML = res.error || ''
-    window.location.reload()
-  }
 
   signInForm.addEventListener('submit', e => {
     e.preventDefault()
+
+    const handleAuth = res => {
+      // handle errors
+      messageElement.innerHTML = res.error || ''
+      window.location.reload()
+    }
 
     const credentials = {
       login: document.getElementById('logemail').value,
@@ -59,8 +71,12 @@ export const showModal = () => {
       .then(res => res.json())
       .then(handleAuth)
 
-    window.fetch('http://localhost:3333/', { credentials: 'include' })
+    window.fetch('http://localhost:3333/', {credentials: 'include'})
       .then(res => res.json())
       .then(handleAuth)
+  })
+
+  closePopup.addEventListener('click', () => {
+    modalConnexion.style.display = 'none'
   })
 }
