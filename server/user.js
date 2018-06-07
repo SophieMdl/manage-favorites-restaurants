@@ -28,11 +28,11 @@ router.post('/sign-in', (req, res, next) => {
 
   // Error handling
   if (!user) {
-    return res.json({error: 'User not found'})
+    return res.json({error: 'Utilisateur inconnu'})
   }
 
   if (user.password !== req.body.password) {
-    return res.json({error: 'Wrong password'})
+    return res.json({error: 'Problème de mot de passe'})
   }
 
   user.previousConnection = (user.lastConnection) ? user.lastConnection : null

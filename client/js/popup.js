@@ -70,9 +70,10 @@ export const initModal = () => {
     e.preventDefault()
 
     const handleAuth = res => {
+      console.log('handleAuth', res)
       // handle errors
       messageElement.innerHTML = res.error || ''
-      window.location.reload()
+      if(!res.error) window.location.reload()
     }
 
     const credentials = {
@@ -90,9 +91,6 @@ export const initModal = () => {
       .then(res => res.json())
       .then(handleAuth)
 
-    window.fetch('http://localhost:3333/', {credentials: 'include'})
-      .then(res => res.json())
-      .then(handleAuth)
   })
 
   closePopup.addEventListener('click', () => {
