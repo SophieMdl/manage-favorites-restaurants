@@ -14,8 +14,7 @@ export const scriptComponentsConnexion = () => {
         btnConnexion.addEventListener('click', showModal)
       } else {
         document.getElementById('sign-out').addEventListener('click', () => {
-          window.fetch('http://localhost:3333/sign-out', {'credentials': 'include'})
-            .then(res => res.json())
+          window.fetch('http://localhost:3333/sign-out', {credentials: 'include'})
             .then(window.location.reload())
         })
       }

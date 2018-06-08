@@ -51,6 +51,8 @@ router.get('/session', (req, res, next) => {
 
 router.get('/sign-out', (req, res) => {
   req.session.user = {}
+  req.session.save()
+  console.log('sign-out')
   return sendCurrentUser(req, res)
 })
 
