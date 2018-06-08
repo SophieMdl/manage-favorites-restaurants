@@ -63,11 +63,14 @@ router.post('/update-my-profil', (request, response, next) => {
   if (user === undefined) return response.status(404).end('not found')
 
   user.email = request.body.email
-  user.password = request.body.password
+  user.name = request.body.name
+  if (request.body.password.length > 0)
+    user.password = request.body.password
 
-  const content = JSON.stringify(users, null, 2)
-  return writeFile(filePath, content, 'utf8')
-    .then(() => response.end('Ok'))
+  request.session.user = user
+
+  return updateDataUser(user)
+    .then(() => response.json('ok'))
     .catch(next)
 })
 
@@ -145,7 +148,6 @@ function updateDataUser (user) {
   let users = require(filePath)
   let userToUpdate = users.find(element => element.id === user.id)
   if (userToUpdate === undefined) return null
-
 
   for (const prop in user) {
     userToUpdate[prop] = user[prop]
