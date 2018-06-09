@@ -29,7 +29,7 @@ export const popup =
             <div class ="input-container">
             <input type="text" placeholder="Ton nom" name="name" id="register-name" required>
 
-            <input type="text" placeholder="Ton email" name="email" id="register-email" required>
+            <input type="email" placeholder="Ton email" name="email" id="register-email" required>
 
             <input type="password" placeholder="Choisir un mot de passe" name="psw" id="register-psw" required>
 

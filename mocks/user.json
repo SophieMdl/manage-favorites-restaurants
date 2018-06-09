@@ -4,7 +4,9 @@
     "name": "Michel",
     "email": "m.ichel@mail.fr",
     "password": "123",
-    "createdAt": 1522827778984
+    "createdAt": 1522827778984,
+    "previousConnection": null,
+    "lastConnection": 1528527428223
   },
   {
     "id": 2,
@@ -18,7 +20,9 @@
     "name": "Bobby",
     "email": "Bo.bby@mail.fr",
     "password": "bobby1985",
-    "createdAt": 1522828983993
+    "createdAt": 1522828983993,
+    "previousConnection": null,
+    "lastConnection": 1528527567192
   },
   {
     "id": 4,

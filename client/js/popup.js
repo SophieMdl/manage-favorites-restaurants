@@ -1,24 +1,57 @@
+const modalConnexion = document.getElementById('popup-cnx')
+
 /* ****** GESTION MODAL ******* */
 export const showModal = () => {
-  const showModal = document.getElementById('popup-cnx')
+  modalConnexion.style.display = 'block'
+}
 
-  showModal.style.display = 'block'
+const hideModal = () => {
+  modalConnexion.style.display = 'none'
+}
+document.addEventListener('DOMContentLoaded', function (event) {
+  initModal()
+})
+
+export const initModal = () => {
+
+  const passwordInput = document.getElementById('register-psw')
+  const passwordConfirmInput = document.getElementById('confirm-psw')
+  const messageElement = document.getElementById('message')
+  const signInForm = document.getElementById('form-connect')
   const closePopup = document.getElementById('close-popup')
-  closePopup.addEventListener('click', () => {
-    showModal.style.display = 'none'
+  const errorMessage = 'Les 2 mots de passe ne correspondent pas'
+  const emailInput = document.getElementById('register-email')
+
+  passwordConfirmInput.addEventListener('input', event => {
+    passwordConfirmInput.setCustomValidity(
+      (passwordConfirmInput.value !== passwordInput.value) ? errorMessage : ''
+    )
   })
+
+  passwordInput.addEventListener('input', event => {
+    passwordConfirmInput.setCustomValidity(
+      (passwordConfirmInput.value !== passwordInput.value) ? errorMessage : ''
+    )
+  })
+
+  emailInput.addEventListener('blur', event => {
+    window.fetch('http://localhost:3333/check-email', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: emailInput.value,
+      })
+    }).then(res => res.json())
+      .then(res => emailInput.setCustomValidity((res) ? '' : 'Ce email est déjà utilisé.'))
+  })
+
   // formulaire d'inscription
   document.getElementById('form-register').addEventListener('submit', event => {
     event.preventDefault()
     let name = document.getElementById('register-name').value.charAt(0).toUpperCase() + document.getElementById('register-name').value.substring(1).toLowerCase()
-    const email = document.getElementById('register-email').value
-    const password = document.getElementById('register-psw').value
-    const confirmpsw = document.getElementById('confirm-psw')
 
-    if (password !== confirmpsw.value) {
-      confirmpsw.setCustomValidity('Your passwords do not match')
-      return
-    }
     window.fetch('http://localhost:3333/register', {
       method: 'post',
       headers: {
@@ -26,23 +59,22 @@ export const showModal = () => {
       },
       body: JSON.stringify({
         name: name,
-        email: email,
-        password: password
+        email: emailInput.value,
+        password: passwordInput.value
       })
     })
+      .then(res => hideModal())
   })
-  // formulaire de connection
-  const messageElement = document.getElementById('message')
-  const signInForm = document.getElementById('form-connect')
-
-  const handleAuth = res => {
-    // handle errors
-    messageElement.innerHTML = res.error || ''
-    window.location.reload()
-  }
 
   signInForm.addEventListener('submit', e => {
     e.preventDefault()
+
+    const handleAuth = res => {
+      console.log('handleAuth', res)
+      // handle errors
+      messageElement.innerHTML = res.error || ''
+      if(!res.error) window.location.reload()
+    }
 
     const credentials = {
       login: document.getElementById('logemail').value,
@@ -59,8 +91,9 @@ export const showModal = () => {
       .then(res => res.json())
       .then(handleAuth)
 
-    window.fetch('http://localhost:3333/', { credentials: 'include' })
-      .then(res => res.json())
-      .then(handleAuth)
+  })
+
+  closePopup.addEventListener('click', () => {
+    hideModal()
   })
 }

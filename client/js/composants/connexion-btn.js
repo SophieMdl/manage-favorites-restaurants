@@ -5,7 +5,7 @@ export const isConnected = user => {
       <span class="icn icn-logout"></span>
     </div>
     <div class="btn-red connected">
-    <a href="profile.html?id=${user.id}">
+    <a href="profile.html">
       <span class="icn icn-profile"></span>
       <span class="text">Hello ${user.name} ! </span>
     </a>
