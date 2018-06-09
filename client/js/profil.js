@@ -25,6 +25,7 @@ window.fetch('http://localhost:3333/my-profil', {credentials: 'include'})
       e.preventDefault()
       const email = document.getElementById('mail-input').value
       const password = document.getElementById('password-input').value
+      const name = document.getElementById('name-input').value
       window.fetch(`http://localhost:3333/update-my-profil/`, {
         method: 'post',
         headers: {
@@ -33,8 +34,14 @@ window.fetch('http://localhost:3333/my-profil', {credentials: 'include'})
         credentials: 'include',
         body: JSON.stringify({
           email: email,
-          password: password
+          password: password,
+          name: name
         })
-      })
+      }).then(res => res.json())
+        .then(res => {
+          if (res === 'ok') {
+            window.location.reload()
+          }
+        })
     })
   })
