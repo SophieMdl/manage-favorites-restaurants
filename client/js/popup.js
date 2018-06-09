@@ -8,7 +8,7 @@ export const showModal = () => {
 const hideModal = () => {
   modalConnexion.style.display = 'none'
 }
-document.addEventListener('DOMContentLoaded', function (event) {
+document.addEventListener('DOMContentLoaded', (event) => {
   initModal()
 })
 

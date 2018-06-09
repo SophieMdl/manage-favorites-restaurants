@@ -51,5 +51,14 @@
     "email": "lala@lolo.com",
     "password": "1234",
     "createdAt": 1525352543441
+  },
+  {
+    "id": 8,
+    "name": "Sophie",
+    "email": "test@test",
+    "password": "ssss",
+    "createdAt": 1528528727156,
+    "previousConnection": 1528528745213,
+    "lastConnection": 1528528947399
   }
 ]

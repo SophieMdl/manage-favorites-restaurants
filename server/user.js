@@ -109,9 +109,8 @@ module.exports = router
  * Crée une réponse JSON avec l'utilisateur courant et le retourne
  * @param req Requête de la page
  * @param res Réponse de la page
- * @returns {*}
  */
-function sendCurrentUser (req, res) {
+const sendCurrentUser = (req, res) => {
   //req.session.reload()
   const user = (req.session.user && req.session.user.id > 0) ? req.session.user : {}
   if (req.session.user && req.session.user.id > 0) {
@@ -128,7 +127,7 @@ function sendCurrentUser (req, res) {
  * @param res
  * @param user
  */
-function sendUser (res, user) {
+const sendUser = (res, user) => {
   if (user === undefined) return res.json({})
   const userData = {
     name: user.name,
@@ -144,9 +143,8 @@ function sendUser (res, user) {
 /**
  * Met à jour l'utilisateur courant dans la session
  * @param user
- * @returns {*}
  */
-function updateDataUser (user) {
+const updateDataUser = (user) => {
   let users = require(filePath)
   let userToUpdate = users.find(element => element.id === user.id)
   if (userToUpdate === undefined) return null
