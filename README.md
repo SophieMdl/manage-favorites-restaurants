@@ -11,4 +11,7 @@ Fork from https://github.com/WildCodeSchool/paris-0218-les-tontons-fringale
 
 ## Résumé
 
-Mise à jour personnel du projet de ma formation 
+Mise à jour du projet de ma formation 
+Pour lancer le projet, lancer à la racine les commandes : 
+- serve client
+- npm run server
