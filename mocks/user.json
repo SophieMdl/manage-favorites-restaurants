@@ -1,50 +1,64 @@
-[	
-	{
-		"id": 1,
-		"name": "Michel",
-		"createdAt":1522827778984,
-		"email": ["m.ichel@mail.fr"],
-		"password": "azerty1234"	
-	},
-
-	{
-		"id": 2,
-		"name": "Alfred",
-		"createdAt":1522827844975,
-		"email": ["al.fred@mail.fr"],
-		"password": "azertyuiop"	
-	},
-
-	{
-		"id": 3,
-		"name": "Bobby",
-		"createdAt":,
-		"email": ["Bo.bby@mail.fr"],
-		"password": "bobby1985"	
-	},
-
-	{
-		"id": 4,
-		"name": "Mireille",
-		"createdAt":1522828983993,
-		"email": ["Mi.reille@mail.fr"],
-		"password": "qsdf123456"	
-	},
-
-	{
-		"id": 5,
-		"name": "Sarah",
-		"createdAt":1522829042827,
-		"email": ["Sarah.h@mail.fr"],
-		"password": "zyxw123"	
-	},
-
-	{
-		"id": 6,
-		"name": "Audrey",
-		"createdAt":1522829158280,
-		"email": ["Aud.rey@mail.fr"],
-		"password": "poiu09876"	
-	}
+[
+  {
+    "id": 1,
+    "name": "Michel",
+    "email": "m.ichel@mail.fr",
+    "password": "123",
+    "createdAt": 1522827778984,
+    "previousConnection": null,
+    "lastConnection": 1528527428223
+  },
+  {
+    "id": 2,
+    "name": "Alfred",
+    "email": "al.fred@mail.fr",
+    "password": "azertyuiop",
+    "createdAt": 1522827844975
+  },
+  {
+    "id": 3,
+    "name": "Bobby",
+    "email": "Bo.bby@mail.fr",
+    "password": "bobby1985",
+    "createdAt": 1522828983993,
+    "previousConnection": null,
+    "lastConnection": 1528527567192
+  },
+  {
+    "id": 4,
+    "name": "Mireille",
+    "email": "Mi.reille@mail.fr",
+    "password": "qsdf123456",
+    "createdAt": 1522828983993
+  },
+  {
+    "id": 5,
+    "name": "Sarah",
+    "email": "Sarah.h@mail.fr",
+    "password": "zyxw123",
+    "createdAt": 1522829042827
+  },
+  {
+    "id": 6,
+    "name": "Audrey",
+    "email": "Aud.rey@mail.fr",
+    "password": "poiu09875",
+    "createdAt": 1522829158280
+  },
+  {
+    "id": 7,
+    "name": "Bleuparis",
+    "email": "lala@lolo.com",
+    "password": "1234",
+    "createdAt": 1525352543441
+  },
+  {
+    "id": 8,
+    "name": "Sophie",
+    "email": "test@test",
+    "password": "ssss",
+    "createdAt": 1528528727156,
+    "previousConnection": 1528528745213,
+    "lastConnection": 1528528947399
+  }
 ]
-	

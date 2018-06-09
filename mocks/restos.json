@@ -1,248 +1,387 @@
 [
-	{
-		"id" : 1,
-		"name" : "Chez Gladines",
-		"location" : "44 boulevard Saint Germain 75005 Paris",
-		"category" : "French",
-		"url" : "images/restaurants/gladines.jpg",
-		"budget" : "10-15",
-		"description" : "Restaurant basque généreux et gourmand.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2, 3, 4, 5, 6]
-	},
-	{
-		"id" : 2,
-		"name" : "2 bis",
-		"location" : "2 bis rue des Écoles 75005 Paris",
-		"category" : "Snack",
-		"url" : "images/restaurants/2_bis.jpg",
-		"budget" : "0-5",
-		"description" : "Snack paninis crêpes copieux et pas chers.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 4, 5]
-	},
-	{
-		"id" : 3,
-		"name" : "Pain & Co",
-		"location" : "44 boulevard Saint Germain 75005 Paris",
-		"category" : "Boulangerie",
-		"url" : "images/restaurants/pain_and_co.jpg",
-		"budget" : "5-10",
-		"description" : "Boulangerie savoureuse proposant également plats chauds et salades. Propose tables pour manger sur place.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [5, 6]
-	},
-	{
-		"id" : 4,
-		"name" : "Filakia",
-		"location" : "31 rue Linné 75005 Paris",
-		"category" : "Snack",
-		"url" : "images/restaurants/filakia.jpg",
-		"budget" : "10-15",
-		"description" : "Petit resto snack grec revisité style et contemporain.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2, 3, 4, 5, 6]
-	},
-	{
-		"id" : 5,
-		"name" : "Nuance Café",
-		"location" : "16 rue Linné 75005 Paris",
-		"category" : "French",
-		"url" : "",
-		"budget" : "10-15",
-		"description" : "Café resto fusion français/asiatique proposant plats, sandwichs, desserts dans une déco soignée.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2, 3, 4, 5, 6]
-	},
-	{
-		"id" : 6,
-		"name" : "Bagel Corner",
-		"location" : "29 rue Linné 75005 Paris",
-		"category" : "Snack",
-		"url" : "images/restaurants/bagel_corner.jpg",
-		"budget" : "5-10",
-		"description" : "Un cadre informel rappelant New-York avec ses briques rouges et sa façade pour des bagels sucrés et salés.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2, 3, 4, 5, 6]
-	},
-	{
-		"id" : 7,
-		"name" : "Traiteur Asiatique",
-		"location" : "34 rue du Cardinal Lemoine 75005 Paris",
-		"category" : "Asiatique",
-		"url" : "",
-		"budget" : "5-10",
-		"description" : "Traiteur asiatique proposant bons plats et menus à moins de 10 €.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2, 3, 4, 5, 6]
-	},
-	{
-		"id" : 8,
-		"name" : "Comptoir Méditerranée",
-		"location" : "42 rue du Cardinal Lemoine 75005 Paris",
-		"category" : "Snack",
-		"url" : "images/restaurants/comptoir_mediterranee.jpg",
-		"budget" : "5-10",
-		"description" : ".",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2, 3, 4, 5]
-	},
-	{
-		"id" : 9,
-		"name" : "Miam Miam",
-		"location" : "6 Rue Thouin 75005 Paris",
-		"category" : "Asiatique",
-		"url" : "images/restaurants/miam_miam.jpg",
-		"budget" : "5-10",
-		"description" : "Restaurant de cuisine coréenne aux murs colorés spécialisé en barbecue et proposant des boissons typiques.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2, 3, 4 ]
-	},
-	{
-		"id" : 10,
-		"name" : "Sucrepice",
-		"location" : "5 Rue d'Arras 75005 Paris",
-		"category" : "Asiatique",
-		"url" : "images/restaurants/sucrepice.jpg",
-		"budget" : "5-10",
-		"description" : "Chinois Sichuan à la déco traditionnelle.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2, 3 ]
-	},
-	{
-		"id" : 11,
-		"name" : "Saïgon Panthéon",
-		"location" : "27 Rue Descarts 75005 Paris",
-		"category" : "Asiatique",
-		"url" : "images/restaurants/saigon_pantheon.jpg",
-		"budget" : "5-10",
-		"description" : "Ce restaurant vietnamien propose de fins plats typiques dans un cadre moderne et convivial aux murs en pierre.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2, 3, 4 ]
-	},
-	{
-		"id" : 12,
-		"name" : "Kitchen Ter(re)",
-		"location" : "26 Boulevard Saint-Germain 75005 Paris",
-		"category" : "French",
-		"url" : "images/restaurants/kitchen_terre.jpg",
-		"budget" : "10-50",
-		"description" : "Kitchen Ter(re), nouveau restaurant dont la partition se joue tout autour des pâtes et des bouillons.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2]
-	},
-	{
-		"id" : 13,
-		"name" : "L'Île de Crète",
-		"location" : "10 Rue Mouffetard 75005 Paris",
-		"category" : "Snack",
-		"url" : "images/restaurants/l_ile_de_crete.jpg",
-		"budget" : "5-10",
-		"description" : "Ce restaurant et traiteur sert sandwiches de viande à la broche et spécialités grecques.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [4, 5, 6]
-	},
-	{
-		"id" : 14,
-		"name" : "Mezzo Di Pasta",
-		"location" : "3 Rue des Boulangers 75005 Paris",
-		"category" : "Italien",
-		"url" : "images/restaurants/mezzo_di_pasta.jpg",
-		"budget" : "5-10",
-		"description" : "Chaîne de restauration rapide de pâtes fraîches sur mesure servies dans des lunchbox sur place ou à emporter.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2, 3, 4]
-	},
-	{
-		"id" : 15,
-		"name" : "Le Puits de Legumes",
-		"location" : "18 Rue du Cardinal Lemoine 75005 Paris",
-		"category" : "Healthy",
-		"url" : "images/restaurants/le_puits_de_legumes.jpg",
-		"budget" : "5-10",
-		"description" : "Offrant une décoration chaleureuse et familiale, ce petit restaurant bio sert des plats végétariens maison.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2]
-	},
-	{
-		"id" : 16,
-		"name" : "Alimento",
-		"location" : "9 rue de Pontoise 75005 Paris",
-		"category" : "Italien",
-		"url" : "images/restaurants/alimento.jpg",
-		"budget" : "10-50",
-		"description" : "Trattoria aux accents d’ancien bistrot « brooklynisé » qui sent bon l’Italie conte une histoire dans ses assiettes, celle d’une gastronameie italienne de terroir.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2, 3]
-	},
-	{
-		"id" : 17,
-		"name" : "Vegan Folie's",
-		"location" : "5 Rue d'Arras 75005 Paris",
-		"category" : "Healthy",
-		"url" : "images/restaurants/vegan_folies.jpg",
-		"budget" : "5-10",
-		"description" : "Les cupcakes, cheesecakes et cookies de cette petite boutique au décor vert et bois sont végétaliens et bio.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2]
-	},
-	{
-		"id" : 18,
-		"name" : "Mobster Diner",
-		"location" : "20 Rue des Boulangers 75005 Paris",
-		"category" : "Burger",
-		"url" : "images/restaurants/mobster_diner.jpg",
-		"budget" : "5-10",
-		"description" : "Ce restaurant à l'ambiance de style années folles sert burgers et cheesecakes sur un fond de musique jazz.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [ 4, 5, 6]
-	},
-	{
-		"id" : 19,
-		"name" : "Hamler's Burgery",
-		"location" : "12 Rue Monge 75005 Paris",
-		"category" : "Burger",
-		"url" : "images/restaurants/hamlers_burgery.jpg",
-		"budget" : "5-10",
-		"description" : "Ce restaurant compact avec terrasse sert des burgers et spécialités américaines dans un décor tendance.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [ 3, 4, 5, 6]
-	},
-	{
-		"id" : 20,
-		"name" : "La Voie Lactée KEBAB",
-		"location" : "3 Rue des Écoles 75005 Paris",
-		"category" : "Snack",
-		"url" : "images/restaurants/la_voie_lactee_kebab.jpg",
-		"budget" : "5-10",
-		"description" : "Kebab sur place ou pour emporter.",
-		"cart" : true,
-		"vegetarian" : true,
-		"like" : [1, 2, 5, 6]
-
-	}
-
-
-
-
-
+  {
+    "id": 1,
+    "name": "Chez Gladines",
+    "location": "44 boulevard Saint Germain 75005 Paris",
+    "category": "French",
+    "url": "images/restaurants/gladines.jpg",
+    "budget": "Plus de 10€",
+    "description": "Restaurant basque généreux et gourmand.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 2,
+    "name": "2 bis",
+    "location": "2 bis rue des Écoles 75005 Paris",
+    "category": "Snack",
+    "url": "images/restaurants/2_bis.jpg",
+    "budget": "Moins de 5€",
+    "description": "Snack paninis crêpes copieux et pas chers.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      1,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Pain & Co",
+    "location": "44 boulevard Saint Germain 75005 Paris",
+    "category": "Snack",
+    "url": "images/restaurants/pain_and_co.jpg",
+    "budget": "De 5 à 10€",
+    "description": "Boulangerie savoureuse proposant également plats chauds et salades. Propose tables pour manger sur place.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      5,
+      6
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Filakia",
+    "location": "31 rue Linné 75005 Paris",
+    "category": "Snack",
+    "url": "images/restaurants/filakia.jpg",
+    "budget": "Plus de 10€",
+    "description": "Petit resto snack grec revisité style et contemporain.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Nuance Café",
+    "location": "16 rue Linné 75005 Paris",
+    "category": "French",
+    "url": "images/categories/french.jpg",
+    "budget": "Plus de 10€",
+    "description": "Café resto fusion français/asiatique proposant plats, sandwichs, desserts dans une déco soignée.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Bagel Corner",
+    "location": "29 rue Linné 75005 Paris",
+    "category": "Snack",
+    "url": "images/restaurants/bagel_corner.jpg",
+    "budget": "De 5 à 10€",
+    "description": "Un cadre informel rappelant New-York avec ses briques rouges et sa façade pour des bagels sucrés et salés.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Traiteur Asiatique",
+    "location": "34 rue du Cardinal Lemoine 75005 Paris",
+    "category": "Asiatique",
+    "url": "images/categories/asiatique.jpg",
+    "budget": "De 5 à 10€",
+    "description": "Traiteur asiatique proposant bons plats et menus à moins de 10 €.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "Oui",
+    "like": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      1
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Comptoir Méditerranée",
+    "location": "42 rue du Cardinal Lemoine 75005 Paris",
+    "category": "Snack",
+    "url": "images/restaurants/comptoir_mediterranee.jpg",
+    "budget": "De 5 à 10€",
+    "description": "",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 9,
+    "name": "Miam Miam",
+    "location": "6 Rue Thouin 75005 Paris",
+    "category": "Asiatique",
+    "url": "images/restaurants/miam_miam.jpg",
+    "budget": "De 5 à 10€",
+    "description": "Restaurant de cuisine coréenne aux murs colorés spécialisé en barbecue et proposant des boissons typiques.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      3,
+      4,
+      1,
+      2,
+      8
+    ]
+  },
+  {
+    "id": 10,
+    "name": "Sucrepice",
+    "location": "5 Rue d'Arras 75005 Paris",
+    "category": "Asiatique",
+    "url": "images/restaurants/sucrepice.jpg",
+    "budget": "De 5 à 10€",
+    "description": "Chinois Sichuan à la déco traditionnelle.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "id": 11,
+    "name": "Saïgon Panthéon",
+    "location": "27 Rue Descarts 75005 Paris",
+    "category": "Asiatique",
+    "url": "images/restaurants/saigon_pantheon.jpg",
+    "budget": "De 5 à 10€",
+    "description": "Ce restaurant vietnamien propose de fins plats typiques dans un cadre moderne et convivial aux murs en pierre.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "id": 12,
+    "name": "Kitchen Ter(re)",
+    "location": "26 Boulevard Saint-Germain 75005 Paris",
+    "category": "French",
+    "url": "images/restaurants/kitchen_terre.jpg",
+    "budget": "Plus de 10€",
+    "description": "Kitchen Ter(re), nouveau restaurant dont la partition se joue tout autour des pâtes et des bouillons.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      1,
+      2
+    ]
+  },
+  {
+    "id": 13,
+    "name": "L'Île de Crète",
+    "location": "10 Rue Mouffetard 75005 Paris",
+    "category": "Snack",
+    "url": "images/restaurants/l_ile_de_crete.jpg",
+    "budget": "De 5 à 10€",
+    "description": "Ce restaurant et traiteur sert sandwiches de viande à la broche et spécialités grecques.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 14,
+    "name": "Mezzo Di Pasta",
+    "location": "3 Rue des Boulangers 75005 Paris",
+    "category": "Italien",
+    "url": "images/restaurants/mezzo_di_pasta.jpg",
+    "budget": "De 5 à 10€",
+    "description": "Chaîne de restauration rapide de pâtes fraîches sur mesure servies dans des lunchbox sur place ou à emporter.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "id": 15,
+    "name": "Le Puits de Legumes",
+    "location": "18 Rue du Cardinal Lemoine 75005 Paris",
+    "category": "Healthy",
+    "url": "images/restaurants/le_puits_de_legumes.jpg",
+    "budget": "De 5 à 10€",
+    "description": "Offrant une décoration chaleureuse et familiale, ce petit restaurant bio sert des plats végétariens maison.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      1,
+      2
+    ]
+  },
+  {
+    "id": 16,
+    "name": "Alimento",
+    "location": "9 rue de Pontoise 75005 Paris",
+    "category": "Italien",
+    "url": "images/restaurants/alimento.jpg",
+    "budget": "Plus de 10€",
+    "description": "Trattoria aux accents d’ancien bistrot « brooklynisé » qui sent bon l’Italie conte une histoire dans ses assiettes, celle d’une gastronameie italienne de terroir.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      1,
+      2,
+      3
+    ]
+  },
+  {
+    "id": 17,
+    "name": "Vegan Folie's",
+    "location": "5 Rue d'Arras 75005 Paris",
+    "category": "Healthy",
+    "url": "images/restaurants/vegan_folies.jpg",
+    "budget": "De 5 à 10€",
+    "description": "Les cupcakes, cheesecakes et cookies de cette petite boutique au décor vert et bois sont végétaliens et bio.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      1,
+      2
+    ]
+  },
+  {
+    "id": 18,
+    "name": "Mobster Diner",
+    "location": "20 Rue des Boulangers 75005 Paris",
+    "category": "Burger",
+    "url": "images/restaurants/mobster_diner.jpg",
+    "budget": "De 5 à 10€",
+    "description": "Ce restaurant à l'ambiance de style années folles sert burgers et cheesecakes sur un fond de musique jazz.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 19,
+    "name": "Hamler's Burgery",
+    "location": "12 Rue Monge 75005 Paris",
+    "category": "Burger",
+    "url": "images/restaurants/hamlers_burgery.jpg",
+    "budget": "De 5 à 10€",
+    "description": "Ce restaurant compact avec terrasse sert des burgers et spécialités américaines dans un décor tendance.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  {
+    "id": 20,
+    "name": "La Voie Lactée KEBAB",
+    "location": "3 Rue des Écoles 75005 Paris",
+    "category": "Snack",
+    "url": "images/restaurants/la_voie_lactee_kebab.jpg",
+    "budget": "De 5 à 10€",
+    "description": "Kebab sur place ou pour emporter.",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "",
+    "like": [
+      1,
+      2,
+      5,
+      6
+    ]
+  },
+  {
+    "id": "2d2c8ro0mec",
+    "name": "Chez Maman",
+    "location": "3 Rue Monge, 75005 Paris",
+    "category": "Italien",
+    "url": "images/categories/italien.jpg",
+    "budget": "Plus de 10€",
+    "description": "La bonne pizza de mama !",
+    "cart": "Oui",
+    "vegetarian": "Non",
+    "takeAway": "",
+    "like": []
+  },
+  {
+    "id": "yqjsonlxmco",
+    "name": "Chez Serge",
+    "location": "1 Avenue De La Vérité, 75005 Paris",
+    "category": "Italien",
+    "url": "images/categories/italien.jpg",
+    "budget": "Plus de 10€",
+    "description": "La véritéééééé",
+    "cart": "Oui",
+    "vegetarian": "Oui",
+    "takeAway": "Oui",
+    "like": []
+  }
 ]

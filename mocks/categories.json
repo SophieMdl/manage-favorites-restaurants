@@ -4,7 +4,7 @@
         {
             "id" :  1,
             "title" : "Asiatique",
-            "url" : "images/categories/asiat4.jpg"
+            "url" : "images/categories/asiatique.jpg"
         },
         {
             "id" :  2,
@@ -14,17 +14,17 @@
         {
             "id" :  3,
             "title" : "French",
-            "url" : "images/categories/french2.jpg"
+            "url" : "images/categories/french.jpg"
         },
         {
             "id" :  4,
             "title" : "Healthy",
-            "url" : "images/categories/healthy2.jpg"
+            "url" : "images/categories/healthy.jpg"
         },
         {
             "id" :  5,
             "title" : "Italien",
-            "url" : "images/categories/pizza.jpg"
+            "url" : "images/categories/italien.jpg"
         },
         {
             "id" :  6,
@@ -36,20 +36,17 @@
     [
         {
             "id": 1,
-            "title" : "0-5",
-            "name" : "Moins de 5€",
+            "title" : "Moins de 5€",
             "url" : "images/categories/budget1.jpg"
         },
         {
             "id": 2,
-            "title" : "5-10",
-            "name" : "Entre 5 et 10€",
+            "title" : "De 5 à 10€",
             "url" : "images/categories/budget2.jpg"
         },
         {
             "id": 3,
-            "title" : "10-50",
-            "name" : "Plus de 10€",
+            "title" : "Plus de 10€",
             "url" : "images/categories/budget3.jpg"
         }
     ]

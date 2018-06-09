@@ -1,35 +1,41 @@
 export const popup =
-`
-  <span class="close-popup-btn" title="Close Modal" id= "close-popup">x</span>
-    <div class="popup-content">
-      <form class="form-content">
+/* html */ `<span class="close-popup-btn" title="Close Modal" id="close-popup">x</span>
+    <div id="message"></div>
+    <div class="row row-responsive" id="popup-content">
+        <form class="form-content column column-md-50 column-xs-100" id="form-connect">
+            <h3>Connexion</h3>
+            <h5>Déjà inscrit ? </h5>
+            <div class ="input-container">
 
-        <h3>Connexion</h3>
-        <p>Déjà inscrit ? Connecte toi ici.</p>
+            <input type="text" placeholder="Ton email" name="email" id="logemail" required>
 
-        <input type="text" placeholder="Ton email" name="email" id="logemail" required>
+            <input type="password" placeholder="Ton mot de passe" name="psw" id="logpsw" required>
+            </div>
 
-        <input type="password" placeholder="Ton mot de passe" name="psw" id="logpsw" required></label>
+            <p>
+                <a href="#">Mot de passe oublié ?</a>
+            </p>
 
-        <p><a href="#">Mot de passe oublié ?</a></p>
+            <button class='button-general' id='logsubmit' type='submit'>Se connecter</button>
 
-          <a href="#" class="button-general" id="logsubmit"><span>Se connecter</span></a>
+        </form>
+        <div id="auth"></div>
+        <form id="sign-out-form" style="display: none">
+            <input type="submit" value="logout">
+        </form>
+        <form class="form-content column column-md-50 column-xs-100" id="form-register">
+            <h3>Créer un compte</h3>
+            <h5>Pas encore inscrit ? </h5>
+            <div class ="input-container">
+            <input type="text" placeholder="Ton nom" name="name" id="register-name" required>
 
-      </form>
+            <input type="email" placeholder="Ton email" name="email" id="register-email" required>
 
-      <form class="form-content">
-        <h3>Créer un compte</h3>
-        <p>Pas encore inscrit ? Remplis le formulaire !</p>
+            <input type="password" placeholder="Choisir un mot de passe" name="psw" id="register-psw" required>
 
-        <input type="text" placeholder="Ton email" name="email" id="registemail" required>
+            <input type="password" placeholder="Confirmer le mot de passe" name="regist-psw-repeat" id="confirm-psw" required>
+            </div>
 
-        <input type="password" placeholder="Choisir un mot de passe" name="psw" id="registpsw" required>
-
-        <input type="password" placeholder="Confirmer le mot de passe" name="regist-psw-repeat" id="confirmpsw" required>
-
-        <p>En créant un compte j' accepte les <a href="#" style="color:dodgerblue">termes et conditions</a>.</p>
-
-          <a href="#" class="button-general" id="registsubmit"><span>S'inscrire</span></a>
-      </form>
-    </div>
-`
+            <button class='button-general' id='registsubmit' type='submit'>S'inscrire</button>
+        </form>
+  </div>`

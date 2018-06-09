@@ -2,6 +2,8 @@
     background-repeat: no-repeat;
     width: 25px;
     height: 25px;
+    background-size: 100%;
+    display: inline-block;
 }
 
 .icn.icn-dice{
@@ -9,7 +11,6 @@
     width: 18px;
     height: 18px;
     transform: rotate(45deg);
-    margin-right : 10px;
 }
 
 .icn.icn-cook{
@@ -20,17 +21,50 @@
 }
 .icn.icn-like{
     background-image: url('../images/icones/like-red.svg');
-    display: inline-block;
 }
 .icn.icn-profile{
     background-image: url('../images/icones/profile-white.svg')
 }
-.active .icn.icn-cook{
+.icn.icn-search{
+    background-image: url('../images/icones/search.svg')
+}
+.icn.icn-search-white{
+    background-image: url('../images/icones/search-white.svg')
+}
+.icn.icn-filter-white{
+    background-image: url('../images/icones/filter-white.svg')
+}
+.item-filter.active .icn.icn-cook{
     background-image: url('../images/icones/hat-cook-white.svg')
 }
-.active .icn.icn-budget{
+.item-filter.active .icn.icn-budget{
     background-image: url('../images/icones/pig-white.svg')
 }
-.active .icn.icn-like{
+.item-filter.active .icn.icn-like{
     background-image: url('../images/icones/like-white.svg')
 }
+.icn.icn-location{
+    background-image: url('../images/icones/location.svg')
+}
+.icn.icn-card{
+    background-image: url('../images/icones/credit-card.svg')
+}
+.icn.icn-carrot{
+    background-image: url('../images/icones/carrot.svg')
+}
+.icn.icn-bag{
+    background-image: url('../images/icones/bag.svg')
+}
+.icn.icn-price{
+    background-image: url('../images/icones/price.svg')
+}
+.icn.icn-logout{
+    background-image: url('../images/icones/logout.svg')
+}
+.icn.icn-grid{
+    background-image: url('../images/icones/grid.svg');
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+

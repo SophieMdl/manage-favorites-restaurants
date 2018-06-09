@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/import.css">
+	<title>Wild and Hungry</title>
+</head>
+
+<body>
+	<header class="row row-responsive">
+
+	</header>
+
+	<main class="page-content">
+		<div id="add-resto">
+
+			<h3>Ajouter un nouveau restaurant</h3>
+
+			<form id="form" class="row row-responsive">
+				<div class="column column-md-50 column-xs-100">
+					<label>Nom * :
+						<input type="text" id="name-etab" name="name" placeholder="Nom du restaurant" required/>
+					</label>
+
+					<label>Adresse :
+						<input type="text" id="adress-etab" name="location" placeholder="Adresse complète" required/>
+					</label>
+
+					<label>Catégorie * :
+						<select name="category" id="catego-etab" required>
+							<option value="Choisir">Choisir</option>
+							<option value="Asiatique">Asiatique</option>
+							<option value="Burger">Burger</option>
+							<option value="French">French</option>
+							<option value="Healthy">Healthy</option>
+							<option value="Italien">Italien</option>
+							<option value="Snack">Snack</option>
+						</select>
+					</label>
+					<label>Budget * :
+						<select name="budget" id="budget-etab" required>
+							<option value="Choisir">Choisir</option>
+							<option value="Moins de 5€">Moins de 5€</option>
+							<option value="Entre 5 et 10€">Entre 5 et 10€</option>
+							<option value="Plus de 10€">Plus de 10€</option>
+						</select>
+					</label>
+
+				</div>
+				<div class="column column-md-50 column-xs-100">
+					<label>Description :
+						<textarea name="description" id="description-etab" rows="4" cols="50"></textarea>
+					</label>
+					<label>
+						Photo :
+						<input id="fileup" type="file" name="url" />
+					</label>
+					<label>Carte bleue acceptée :
+						<input type="checkbox" name="cart" id="cb-etab" />
+					</label>
+
+					<label>Adapté pour les végétariens :
+						<input type="checkbox" name="vegetarian" id="vege-etab" />
+					</label>
+					<label>Vente à emporter :
+						<input type="checkbox" name="takeAway" id="away-etab" />
+					</label>
+				</div>
+
+				<div>
+					<button class="button-general" type="submit" value="Envoyer" id="addrest-send"> Envoyer</button>
+				</div>
+			</form>
+		</div>
+
+		<div id="popup-cnx" class="popup-outline">
+		</div>
+
+	</main>
+	<footer>
+
+	</footer>
+	<script type="module" src="/js/app.js"></script>
+	<script type="module" src="/js/add-restaurant.js"></script>
+	<script type="module" src="/js/script.js"></script>
+	<script type="module" src="/js/popup.js"></script>
+</body>
+
+</html>
+
