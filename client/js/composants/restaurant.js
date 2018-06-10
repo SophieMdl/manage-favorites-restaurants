@@ -1,4 +1,6 @@
-export const restaurantElement = restaurant => {
+export const restaurantElement = (restaurant, user) => {
+  const stateLike = user && restaurant.like.includes(user.id) ? 'active' : ''
+
   let str = `
   <div class='column column-md-33 column-sm-50 xs-100'>
   <div class="restaurant">
@@ -37,9 +39,10 @@ export const restaurantElement = restaurant => {
       <span>Propose un plat végétarien</span>
     </p>`
   }
-  str = /* html */ `${str}
+  str = `${str}
+
     <div class="like-wrapper">
-      <span class="icn icn-like" id=${restaurant.id}></span>
+      <span class="${stateLike} icn icn-like" id=${restaurant.id}></span>
       <span>${restaurant.like.length}</span>
     </div>
     <p class="price-wrapper">

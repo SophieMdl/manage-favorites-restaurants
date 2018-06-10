@@ -8,9 +8,9 @@ export const getCurrentUser = () => {
           user.createdAt = new Date(user.createdAt)
           user.previousConnection = (user.previousConnection) ? new Date(user.previousConnection) : null
           user.lastConnection = (user.lastConnection) ? new Date(user.lastConnection) : null
-          console.log(user)
+          resolve(user)
         }
-        resolve(user)
+        resolve(null)
       })
   )
 }

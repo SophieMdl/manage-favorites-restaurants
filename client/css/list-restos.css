@@ -70,6 +70,7 @@ main h2::after {
     text-align: right;
     margin-bottom: 10px;
     cursor : pointer;
+    font-weight: 600;
 }
 
 .restaurant .price-wrapper{

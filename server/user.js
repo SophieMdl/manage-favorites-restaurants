@@ -117,8 +117,6 @@ const sendCurrentUser = (req, res) => {
     console.log(req.session.user.id)
   }
   //req.session.save();
-  console.log('req.session', req.session, req.session.id)
-  console.log('sendCurrentUser', user)
   return sendUser(res, user)
 }
 

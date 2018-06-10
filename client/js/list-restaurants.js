@@ -2,9 +2,22 @@
 
 import { restaurantElement } from './composants/restaurant.js'
 import { restaurantScale, restaurantLikes } from './restaurant-functions.js'
+import { getCurrentUser } from './user.js'
+import { getRestaurantsList } from './fetch-restaurants.js'
 
 const listResto = document.getElementById('list-restos')
 const params = new URLSearchParams(window.location.search)
+
+async function getClassLike() {
+  const user = await getCurrentUser()
+  let classLike
+  // if (user) {
+  //   classLike = restaurant.like.includes(user.id) ? 'icn icn-like active' : 'icn icn-like'
+  // }
+  console.log(user);
+  return user
+}
+//getClassLike()
 
 //  On récupère le nom de la catégorie
 const cat = params.get('cat')
@@ -12,9 +25,10 @@ let budget = params.get('budget')
 let search = params.get('search')
 const random = params.get('random')
 
-window.fetch(`http://localhost:3333/restaurants/`)
-  .then(res => res.json())
-  .then(restaurants => {
+Promise.all([
+  getCurrentUser(),
+  getRestaurantsList()
+]).then(([user, restaurants]) => {
     // On affiche les bons restos en fonction du budget ou de la catégorie
     if (cat) {
       document.querySelector('h2').innerHTML = cat
@@ -30,14 +44,14 @@ window.fetch(`http://localhost:3333/restaurants/`)
         restaurant.name.toLowerCase() === search)
     } else if (random) {
       document.querySelector('h2').innerHTML = 'Randomeal'
-
       let randomResto = restaurants[Math.floor(Math.random() * restaurants.length)]
       restaurants = []
       restaurants.push(randomResto)
     }
-
     if (restaurants.length) {
-      listResto.innerHTML = restaurants.map(restaurantElement).join('')
+      listResto.innerHTML = restaurants
+        .map(restaurant => restaurantElement(restaurant, user))
+        .join('')
       restaurantScale(listResto)
       restaurantLikes()
     } else {
