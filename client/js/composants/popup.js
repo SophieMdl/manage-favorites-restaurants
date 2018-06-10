@@ -1,10 +1,12 @@
 export const popup =
 /* html */ `<span class="close-popup-btn" title="Close Modal" id="close-popup">x</span>
-    <div id="message"></div>
+
     <div class="row row-responsive" id="popup-content">
+
         <form class="form-content column column-md-50 column-xs-100" id="form-connect">
             <h3>Connexion</h3>
             <h5>Déjà inscrit ? </h5>
+
             <div class ="input-container">
 
             <input type="text" placeholder="Ton email" name="email" id="logemail" required>
@@ -12,9 +14,7 @@ export const popup =
             <input type="password" placeholder="Ton mot de passe" name="psw" id="logpsw" required>
             </div>
 
-            <p>
-                <a href="#">Mot de passe oublié ?</a>
-            </p>
+            <div id="message" class="negative message"></div>
 
             <button class='button-general' id='logsubmit' type='submit'>Se connecter</button>
 
