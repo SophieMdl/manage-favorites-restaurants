@@ -59,7 +59,7 @@ export const restaurantLikes = () => {
               method: 'post',
               credentials: 'include',
               headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
               },
               body: JSON.stringify({
                 idResto: e.target.getAttribute('id')

@@ -9,9 +9,6 @@ const restaurant = require('./restaurant.js')
 
 const app = express()
 
-// systeme authentification
-const secret = 'something unbelievable'
-
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
@@ -57,7 +54,5 @@ app.get('/', (request, response) => {
 app.use('', restaurant)
 app.use('', category)
 app.use('', user)
-
-
 // port ecouter
 app.listen(3333, () => console.log("j'écoute sur le port 3333"))

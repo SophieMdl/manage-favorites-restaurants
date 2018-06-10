@@ -28,11 +28,11 @@ router.post('/sign-in', (req, res, next) => {
 
   // Error handling
   if (!user) {
-    return res.json({error: 'Utilisateur inconnu'})
+    return res.json({ error: 'Utilisateur inconnu' })
   }
 
   if (user.password !== req.body.password) {
-    return res.json({error: 'Problème de mot de passe'})
+    return res.json({ error: 'Problème de mot de passe' })
   }
 
   user.previousConnection = (user.lastConnection) ? user.lastConnection : null
@@ -66,9 +66,9 @@ router.post('/update-my-profil', (request, response, next) => {
 
   user.email = request.body.email
   user.name = request.body.name
-  if (request.body.password.length > 0)
+  if (request.body.password.length > 0) {
     user.password = request.body.password
-
+  }
   request.session.user = user
 
   return updateDataUser(user)
@@ -111,12 +111,10 @@ module.exports = router
  * @param res Réponse de la page
  */
 const sendCurrentUser = (req, res) => {
-  //req.session.reload()
   const user = (req.session.user && req.session.user.id > 0) ? req.session.user : {}
   if (req.session.user && req.session.user.id > 0) {
     console.log(req.session.user.id)
   }
-  //req.session.save();
   return sendUser(res, user)
 }
 

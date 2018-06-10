@@ -9,7 +9,6 @@ const filePath = path.join(__dirname, '../mocks/categories.json')
 const readFile = util.promisify(fs.readFile)
 
 router.get('/categories', (request, response) => {
-
   // promise
   readFile(filePath)
   // traitement de la donnéee
@@ -24,4 +23,4 @@ router.get('/categories', (request, response) => {
     })
 })
 
-module.exports = router;
+module.exports = router
