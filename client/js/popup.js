@@ -1,5 +1,4 @@
 const modalConnexion = document.getElementById('popup-cnx')
-
 /* ****** GESTION MODAL ******* */
 export const showModal = () => {
   modalConnexion.style.display = 'block'
@@ -13,7 +12,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
 })
 
 export const initModal = () => {
-
   const passwordInput = document.getElementById('register-psw')
   const passwordConfirmInput = document.getElementById('confirm-psw')
   const messageElement = document.getElementById('message')
@@ -41,7 +39,7 @@ export const initModal = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        email: emailInput.value,
+        email: emailInput.value
       })
     }).then(res => res.json())
       .then(res => emailInput.setCustomValidity((res) ? '' : 'Ce email est déjà utilisé.'))
@@ -73,7 +71,7 @@ export const initModal = () => {
       console.log('handleAuth', res)
       // handle errors
       messageElement.innerHTML = res.error || ''
-      if(!res.error) window.location.reload()
+      if (!res.error) window.location.reload()
     }
 
     const credentials = {
@@ -90,9 +88,7 @@ export const initModal = () => {
     })
       .then(res => res.json())
       .then(handleAuth)
-
   })
-
   closePopup.addEventListener('click', () => {
     hideModal()
   })

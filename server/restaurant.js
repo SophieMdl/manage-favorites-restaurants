@@ -30,7 +30,7 @@ const upload = multer({
 router.get('/restaurants', (request, response) => {
   // promise
   readFile(filePath)
-  // traitement de la donnéee
+    // traitement de la donnéee
     .then(data => {
       response.header('Content-Type', 'application/json; charset=utf-8')
       response.end(data)
@@ -46,7 +46,7 @@ router.post('/restaurant', upload.single('url'), (request, response, next) => {
   const id = Math.random().toString(36).slice(2).padEnd(11, '0')
   // 1 Lire le fichier et convertir le buffer en string (utf8)
   readFile(filePath, 'utf8')
-  // 2 convertir la string en objet JS
+    // 2 convertir la string en objet JS
     .then(JSON.parse)
     .then(restos => {
       // 3 ajouter le nouveau bloc en array
@@ -78,16 +78,16 @@ router.post('/restaurant', upload.single('url'), (request, response, next) => {
 })
 
 router.post('/like', (req, res, next) => {
-  if(req.session.user=== undefined || req.body.idResto === undefined ) {
+  if (req.session.user === undefined || req.body.idResto === undefined) {
     res.status(404).end('not found')
-    return;
+    return
   }
   readFile(filePath, 'utf8')
     .then(JSON.parse)
     .then(restaus => {
       let restau = restaus.find(element => req.body.idResto === element.id.toString())
 
-      const index = restau.like.findIndex(el => el === req.session.user.id )
+      const index = restau.like.findIndex(el => el === req.session.user.id)
       if (index !== -1) {
         restau.like.splice(index, 1)
       } else {
@@ -99,6 +99,4 @@ router.post('/like', (req, res, next) => {
     .catch(next)
 })
 
-module.exports = router;
-
-
+module.exports = router

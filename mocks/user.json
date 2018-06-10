@@ -13,7 +13,9 @@
     "name": "Alfred",
     "email": "al.fred@mail.fr",
     "password": "azertyuiop",
-    "createdAt": 1522827844975
+    "createdAt": 1522827844975,
+    "previousConnection": 1528625192059,
+    "lastConnection": 1528626984332
   },
   {
     "id": 3,
@@ -43,7 +45,9 @@
     "name": "Audrey",
     "email": "Aud.rey@mail.fr",
     "password": "poiu09875",
-    "createdAt": 1522829158280
+    "createdAt": 1522829158280,
+    "previousConnection": 1528631823898,
+    "lastConnection": 1528633218628
   },
   {
     "id": 7,

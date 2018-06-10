@@ -22,6 +22,9 @@
 .icn.icn-like{
     background-image: url('../images/icones/like-red.svg');
 }
+.icn.icn-like.active{
+    background-image: url('../images/icones/like-full.svg');
+}
 .icn.icn-profile{
     background-image: url('../images/icones/profile-white.svg')
 }
