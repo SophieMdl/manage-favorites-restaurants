@@ -52,7 +52,7 @@ export const restaurantLikes = () => {
     .then(user => {
       for (let like of btnLikes) {
         like.addEventListener('click', (e) => {
-          if (!user.name) {
+          if (!user) {
             showModal()
           } else {
             window.fetch(`http://localhost:3333/like`, {
