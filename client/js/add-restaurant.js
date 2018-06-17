@@ -34,7 +34,7 @@ form.addEventListener('submit', event => {
   nameFirstLowerCase('name', nameValue)
   nameFirstLowerCase('location', locValue)
 
-  window.fetch('http://localhost:3333/restaurants', { method: 'post', body: formData })
+  window.fetch('https://wild-and-hungry.herokuapp.com/restaurants', { method: 'post', body: formData })
     .then(res => res.json())
     .then(res => console.log(res))
     .catch(err => console.log(err))

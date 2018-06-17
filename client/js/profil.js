@@ -2,7 +2,7 @@ import { profilPage } from './composants/user.js'
 
 const profilElement = document.getElementById('mon-profil')
 
-window.fetch('http://localhost:3333/my-profil', {credentials: 'include'})
+window.fetch('https://wild-and-hungry.herokuapp.com/my-profil', {credentials: 'include'})
   .then(res => res.json())
   .then(user => {
     console.log(user)
@@ -26,7 +26,7 @@ window.fetch('http://localhost:3333/my-profil', {credentials: 'include'})
       const email = document.getElementById('mail-input').value
       const password = document.getElementById('password-input').value
       const name = document.getElementById('name-input').value
-      window.fetch(`http://localhost:3333/update-my-profil/`, {
+      window.fetch(`https://wild-and-hungry.herokuapp.com/update-my-profil/`, {
         method: 'post',
         headers: {
           'Content-Type': 'application/json'

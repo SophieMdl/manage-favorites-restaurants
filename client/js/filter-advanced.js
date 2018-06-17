@@ -62,7 +62,7 @@ const filterRestaurants = (filters, restaurants) => {
   displayRestaurants(filteredData)
 }
 
-window.fetch('http://localhost:3333/categories')
+window.fetch('https://wild-and-hungry.herokuapp.com/categories')
   .then(res => res.json())
   .then(categories => {
     listByType.innerHTML = categories['cuisine'].map(filterElement).join('')
@@ -84,7 +84,7 @@ window.fetch('http://localhost:3333/categories')
     }
   })
 
-window.fetch('http://localhost:3333/restaurants')
+window.fetch('https://wild-and-hungry.herokuapp.com/restaurants')
   .then(res => res.json())
   .then(res => {
     restaurants = res
