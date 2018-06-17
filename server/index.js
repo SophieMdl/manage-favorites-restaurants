@@ -7,6 +7,8 @@ const user = require('./user.js')
 const category = require('./category.js')
 const restaurant = require('./restaurant.js')
 
+const port = process.env.PORT || 3333
+
 const app = express()
 
 app.use(bodyParser.urlencoded({extended: false}))
@@ -55,4 +57,4 @@ app.use('', restaurant)
 app.use('', category)
 app.use('', user)
 // port ecouter
-app.listen(3333, () => console.log("j'écoute sur le port 3333"))
+app.listen(port, () => console.log(`j'écoute sur le port ${port}`))
