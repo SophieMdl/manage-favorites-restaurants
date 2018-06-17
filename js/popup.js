@@ -33,7 +33,7 @@ export const initModal = () => {
   })
 
   emailInput.addEventListener('blur', event => {
-    window.fetch('http://localhost:3333/check-email', {
+    window.fetch('https://wild-and-hungry.herokuapp.com/check-email', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ export const initModal = () => {
     event.preventDefault()
     let name = document.getElementById('register-name').value.charAt(0).toUpperCase() + document.getElementById('register-name').value.substring(1).toLowerCase()
 
-    window.fetch('http://localhost:3333/register', {
+    window.fetch('https://wild-and-hungry.herokuapp.com/register', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
@@ -78,7 +78,7 @@ export const initModal = () => {
       login: document.getElementById('logemail').value,
       password: document.getElementById('logpsw').value
     }
-    window.fetch('http://localhost:3333/sign-in', {
+    window.fetch('https://wild-and-hungry.herokuapp.com/sign-in', {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
