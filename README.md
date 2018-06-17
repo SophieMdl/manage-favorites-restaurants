@@ -7,7 +7,7 @@
 
 # Project 2
 
-Fork from https://github.com/WildCodeSchool/paris-0218-les-tontons-fringale
+Published at : https://sophiemdl.github.io/paris-0218-les-tontons-fringale/
 
 ## Résumé
 
