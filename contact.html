@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Paytone+One" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/import.css">
+		<title>Wild and Hungry</title>
+	</head>
+	<body>
+		<header class="row row-responsive"></header>
+		<main class="page-content">
+			<section class="contact-form">
+				<h3>Contact</h3>
+				<form id="form" class="row row-responsive form-inline">
+					<div class="column column-md-100">
+						<form method="POST" action="send" class="form-inline lead-big" role="form" id="contact-form">
+							<div class="form-group">
+								<label for="name">Bonjour. Je m'appelle</label>
+								<input type="text" id="name" placeholder="" required>
+							</div>
+							<div class="form-group">
+								<label for="mail">et voici mon adresse mail :</label>
+								<input type="text" id="mail" placeholder="@">
+							</div>
+							<div class="form-group">
+								<label for="reason"> Je vous contacte car je souhaite </label>
+								<select id="reason">
+									<option value="0" selected>Choisir</option>
+									<option value="1">ajouter mon resto.</option>
+									<option value="2">corriger une fiche.</option>
+									<option value="3">proposer une collaboration.</option>
+									<option value="4">faire une réclamation.</option>
+									<option value="5">vous parler d'autre chose.</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="details"> Voici plus de détails</label>
+								<textarea id="details" placeholder="" required></textarea>
+							</div>
+							<div class="form-group">
+								<label for="telnum">Vous pouvez aussi me joindre sur mon portable au</label>
+								<input type="tel" id="telnum" placeholder="mobile #" required>
+								<p>Merci et bon appétit!</p>
+							</div>
+							<div>
+								<button class="button-general" type="submit" value="Envoyer" id="addrest-send"> Envoyer</button>
+							</div>
+						</form>
+					</div>
+				</form>
+			</section>
+			<div class="social-logo-line">
+				<p>Encore faim ? Va voir sur nos réseaux.</p>
+				<a class="social-logo" href="https://www.facebook.com/" target="_blank"><span class="fab fa-facebook fa-2x"></span></a>
+				<a class="social-logo" href="https://www.twitter.com/" target="_blank"><span class="fab fa-twitter fa-2x"></span></a>
+				<a class="social-logo" href="https://www.instagram.com/" target="_blank"><span class="fab fa-instagram fa-2x"></span></a>
+				<a class="social-logo" href="https://www.linkedin.com/" target="_blank"><span class="fab fa-linkedin fa-2x"></span></a>
+				<a class="social-logo" href="https://www.youtube.com/" target="_blank"><span class="fab fa-youtube fa-2x"></span></a>
+			</div>
+			<div id="popup-cnx" class="popup-outline"></div>
+		</main>
+		<footer></footer>
+	</body>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.11/js/all.js" integrity="sha384-ImVoB8Er8knetgQakxuBS4G3RSkyD8IZVVQCAnmRJrDwqJFYUE4YOv+DbIofcO9C" crossorigin="anonymous"></script>
+	<script type="module" src="/js/app.js"></script>
+	<script type="module" src="/js/script.js"></script>
+	<script type="module" src="/js/popup.js"></script>
+</html>
+

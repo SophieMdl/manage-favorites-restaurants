@@ -1,0 +1,60 @@
+#advanced-filter {
+    background: #fff;
+    transition: all 0.4s ease;
+    box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.2)
+}
+
+#advanced-filter.visible {
+    left: 0%;
+    transition: all 0.4s ease;
+}
+#advanced-filter.hidden{
+    transition: all 0.4s ease;
+}
+
+.filter-wrapper {
+    padding: 30px;
+}
+
+.btn-filter {
+    background-color: #ca3045;
+    background-image: url('../images/icones/filter-white.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20px;
+    text-align: center;
+    position: absolute;
+    right: -45px;
+    top: 45px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    padding-top: 12px;
+    border-radius : 0 15px 15px 0;
+    z-index: 10;
+}
+
+.visible .btn-filter {
+    background-image: url('../images/icones/cross.svg');
+    background-size: 16px;
+}
+
+.filter-wrapper ul {
+    list-style: none;
+}
+
+.filter-wrapper label {
+    font-weight: 300;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 7px;
+}
+
+.filter-wrapper .title-cat {
+    font-size: 2rem;
+}
+
+.filter-wrapper span {
+    display: inline-block;
+    vertical-align: middle;
+}
