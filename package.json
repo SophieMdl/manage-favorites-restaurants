@@ -1,8 +1,10 @@
 {
     "private": true,
     "scripts": {
+        "start": "npm run server",
         "client": "http-server client",
         "server": "nodemon server --ignore client --ignore mocks --ignore sessions",
+        "deploy" : "git push heroku master",
         "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
         "lint:js": "standard | snazzy",
         "lint:fix": "eslint --fix standard",
