@@ -1,5 +1,6 @@
 import { showModal } from './popup.js'
 import { getCurrentUser } from './user.js'
+import { getFetchUrl } from './fetch.js'
 
 export const restaurantScale = emplacement => {
   const columns = emplacement.getElementsByClassName('column')

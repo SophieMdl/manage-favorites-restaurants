@@ -1,8 +1,9 @@
 import { profilPage } from './composants/user.js'
+import { getFetchUrl } from './fetch.js'
 
 const profilElement = document.getElementById('mon-profil')
 
-window.fetch('https://wild-and-hungry.herokuapp.com/my-profil', {credentials: 'include'})
+window.fetch(getFetchUrl()+'/my-profil', {credentials: 'include'})
   .then(res => res.json())
   .then(user => {
     console.log(user)
