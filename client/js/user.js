@@ -1,6 +1,8 @@
+import { getFetchUrl } from './fetch.js'
+
 export const getCurrentUser = () => {
   return new Promise(resolve =>
-    window.fetch('https://wild-and-hungry.herokuapp.com/session',
+    window.fetch(`${getFetchUrl}/session`,
       {credentials: 'include'})
       .then(res => res.json())
       .then(user => {

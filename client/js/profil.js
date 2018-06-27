@@ -1,8 +1,9 @@
 import { profilPage } from './composants/user.js'
+import { getFetchUrl } from './fetch.js'
 
 const profilElement = document.getElementById('mon-profil')
 
-window.fetch('https://wild-and-hungry.herokuapp.com/my-profil', {credentials: 'include'})
+window.fetch(`${getFetchUrl}/my-profil`, {credentials: 'include'})
   .then(res => res.json())
   .then(user => {
     console.log(user)
@@ -26,7 +27,7 @@ window.fetch('https://wild-and-hungry.herokuapp.com/my-profil', {credentials: 'i
       const email = document.getElementById('mail-input').value
       const password = document.getElementById('password-input').value
       const name = document.getElementById('name-input').value
-      window.fetch(`https://wild-and-hungry.herokuapp.com/update-my-profil/`, {
+      window.fetch(`${getFetchUrl}/update-my-profil/`, {
         method: 'post',
         headers: {
           'Content-Type': 'application/json'

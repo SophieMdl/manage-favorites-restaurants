@@ -1,3 +1,5 @@
+import { getFetchUrl } from './fetch.js'
+
 const modalConnexion = document.getElementById('popup-cnx')
 /* ****** GESTION MODAL ******* */
 export const showModal = () => {
@@ -33,7 +35,7 @@ export const initModal = () => {
   })
 
   emailInput.addEventListener('blur', event => {
-    window.fetch('https://wild-and-hungry.herokuapp.com/check-email', {
+    window.fetch(`${getFetchUrl}/check-email`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
@@ -50,7 +52,7 @@ export const initModal = () => {
     event.preventDefault()
     let name = document.getElementById('register-name').value.charAt(0).toUpperCase() + document.getElementById('register-name').value.substring(1).toLowerCase()
 
-    window.fetch('https://wild-and-hungry.herokuapp.com/register', {
+    window.fetch(`${getFetchUrl}/register`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'
@@ -78,7 +80,7 @@ export const initModal = () => {
       login: document.getElementById('logemail').value,
       password: document.getElementById('logpsw').value
     }
-    window.fetch('https://wild-and-hungry.herokuapp.com/sign-in', {
+    window.fetch(`${getFetchUrl}/sign-in`, {
       method: 'post',
       headers: {
         'Content-Type': 'application/json'

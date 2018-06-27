@@ -1,10 +1,11 @@
+import { getFetchUrl } from './fetch.js'
 import { budgetElement, categoriesElement } from './composants/categories.js'
 import { restaurantElement } from './composants/restaurant.js'
 import { restaurantScale, restaurantLikes } from './restaurant-functions.js'
 
 const categoElement = document.getElementById('categories')
 //  Affichage des catégories en fonction des boutons dans l'accueil
-window.fetch('https://wild-and-hungry.herokuapp.com/categories')
+window.fetch(`${getFetchUrl}/categories`)
   .then(res => res.json())
   .then(categories => {
     document.getElementById('budget').addEventListener('click', () => {
@@ -19,7 +20,7 @@ window.fetch('https://wild-and-hungry.herokuapp.com/categories')
 
 // classement des restaurants par plus likes et injection
 const displayTop = () => {
-  window.fetch('https://wild-and-hungry.herokuapp.com/restaurants')
+  window.fetch(`${getFetchUrl}/restaurants`)
     .then(res => res.json())
     .then(restaurants => {
       let bestResto = restaurants.sort(compareNombres)

@@ -1,3 +1,4 @@
+import { getFetchUrl } from './fetch.js'
 import { filterElement } from './composants/filter-advanced.js'
 import { restaurantElement } from './composants/restaurant.js'
 import { restaurantScale, restaurantLikes } from './restaurant-functions.js'
@@ -62,7 +63,7 @@ const filterRestaurants = (filters, restaurants) => {
   displayRestaurants(filteredData)
 }
 
-window.fetch('https://wild-and-hungry.herokuapp.com/categories')
+window.fetch(`${getFetchUrl}/categories`)
   .then(res => res.json())
   .then(categories => {
     listByType.innerHTML = categories['cuisine'].map(filterElement).join('')
@@ -84,7 +85,7 @@ window.fetch('https://wild-and-hungry.herokuapp.com/categories')
     }
   })
 
-window.fetch('https://wild-and-hungry.herokuapp.com/restaurants')
+window.fetch(`${getFetchUrl}/restaurants`)
   .then(res => res.json())
   .then(res => {
     restaurants = res

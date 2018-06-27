@@ -1,5 +1,6 @@
 import { showModal } from './popup.js'
 import { getCurrentUser } from './user.js'
+import { getFetchUrl } from './fetch.js'
 
 export const restaurantScale = emplacement => {
   const columns = emplacement.getElementsByClassName('column')
@@ -55,7 +56,7 @@ export const restaurantLikes = () => {
           if (!user) {
             showModal()
           } else {
-            window.fetch(`https://wild-and-hungry.herokuapp.com/like`, {
+            window.fetch(`${getFetchUrl}/like`, {
               method: 'post',
               credentials: 'include',
               headers: {

@@ -1,6 +1,7 @@
+import { getFetchUrl } from './fetch.js'
 export const getRestaurantsList = () => {
   return new Promise(resolve =>
-    window.fetch('https://wild-and-hungry.herokuapp.com/restaurants')
+    window.fetch(`${getFetchUrl}/restaurants`)
       .then(res => res.json())
       .then(restaurantList => {
         resolve(restaurantList)

@@ -1,3 +1,5 @@
+import { getFetchUrl } from './fetch.js'
+
 // import { addtEtab } from './composants/addrest.js'
 const form = document.getElementById('form')
 form.addEventListener('submit', event => {
@@ -34,7 +36,7 @@ form.addEventListener('submit', event => {
   nameFirstLowerCase('name', nameValue)
   nameFirstLowerCase('location', locValue)
 
-  window.fetch('https://wild-and-hungry.herokuapp.com/restaurants', { method: 'post', body: formData })
+  window.fetch(`${getFetchUrl}/restaurants`, { method: 'post', body: formData })
     .then(res => res.json())
     .then(res => console.log(res))
     .catch(err => console.log(err))
