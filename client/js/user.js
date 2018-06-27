@@ -2,7 +2,7 @@ import { getFetchUrl } from './fetch.js'
 
 export const getCurrentUser = () => {
   return new Promise(resolve =>
-    window.fetch(getFetchUrl()+'/session',
+    window.fetch(`${getFetchUrl}/session`,
       {credentials: 'include'})
       .then(res => res.json())
       .then(user => {

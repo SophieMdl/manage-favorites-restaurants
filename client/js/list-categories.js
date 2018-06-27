@@ -5,7 +5,7 @@ import { restaurantScale, restaurantLikes } from './restaurant-functions.js'
 
 const categoElement = document.getElementById('categories')
 //  Affichage des catégories en fonction des boutons dans l'accueil
-window.fetch(getFetchUrl()+'/categories')
+window.fetch(`${getFetchUrl}/categories`)
   .then(res => res.json())
   .then(categories => {
     document.getElementById('budget').addEventListener('click', () => {
@@ -20,7 +20,7 @@ window.fetch(getFetchUrl()+'/categories')
 
 // classement des restaurants par plus likes et injection
 const displayTop = () => {
-  window.fetch(getFetchUrl()+'/restaurants')
+  window.fetch(`${getFetchUrl}/restaurants`)
     .then(res => res.json())
     .then(restaurants => {
       let bestResto = restaurants.sort(compareNombres)

@@ -15,7 +15,7 @@ export const scriptComponentsConnexion = () => {
         btnConnexion.addEventListener('click', showModal)
       } else {
         document.getElementById('sign-out').addEventListener('click', () => {
-          window.fetch(getFetchUrl()+'/sign-out', {credentials: 'include'})
+          window.fetch(`${getFetchUrl}/sign-out`, {credentials: 'include'})
             .then(window.location.reload())
         })
       }

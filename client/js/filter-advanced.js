@@ -63,7 +63,7 @@ const filterRestaurants = (filters, restaurants) => {
   displayRestaurants(filteredData)
 }
 
-window.fetch(getFetchUrl()+'/categories')
+window.fetch(`${getFetchUrl}/categories`)
   .then(res => res.json())
   .then(categories => {
     listByType.innerHTML = categories['cuisine'].map(filterElement).join('')
@@ -85,7 +85,7 @@ window.fetch(getFetchUrl()+'/categories')
     }
   })
 
-window.fetch(getFetchUrl()+'/restaurants')
+window.fetch(`${getFetchUrl}/restaurants`)
   .then(res => res.json())
   .then(res => {
     restaurants = res

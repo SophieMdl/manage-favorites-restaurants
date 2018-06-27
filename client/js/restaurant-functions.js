@@ -56,7 +56,7 @@ export const restaurantLikes = () => {
           if (!user) {
             showModal()
           } else {
-            window.fetch(`https://wild-and-hungry.herokuapp.com/like`, {
+            window.fetch(`${getFetchUrl}/like`, {
               method: 'post',
               credentials: 'include',
               headers: {

@@ -36,7 +36,7 @@ form.addEventListener('submit', event => {
   nameFirstLowerCase('name', nameValue)
   nameFirstLowerCase('location', locValue)
 
-  window.fetch(getFetchUrl()+'/restaurants', { method: 'post', body: formData })
+  window.fetch(`${getFetchUrl}/restaurants`, { method: 'post', body: formData })
     .then(res => res.json())
     .then(res => console.log(res))
     .catch(err => console.log(err))
