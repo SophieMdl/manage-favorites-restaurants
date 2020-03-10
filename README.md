@@ -5,16 +5,13 @@
 [![Build Status](https://travis-ci.org/SophieMdl/paris-0218-les-tontons-fringale.svg?branch=master)](https://travis-ci.org/WildCodeSchool/paris-0218-les-tontons-fringale)
 
 
-# Project 2
-
-Published at : https://sophiemdl.github.io/paris-0218-les-tontons-fringale/
+# Project
 
 ## Résumé
 
-Mise à jour du projet de ma formation.
+Projet de groupe de ma formation de développeuse JavaScript
+Stack utilisée : Vanilla JS (ES6), NodeJS
 Mon rôle dans le projet a été de gérer toute la partie front (client) : filtres et affichage restaurants, scaling restaurants au click, intégration responsive...
-
-Voir mes commits : https://github.com/SophieMdl/paris-0218-les-tontons-fringale/commits?author=SophieMdl
 
 ## Start
 
