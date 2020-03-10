@@ -7,7 +7,7 @@
 
 # Project
 
-Stack utilisée : Vanilla JS (ES6), NodeJS
+Stack utilisée : Vanilla JS (ES6), NodeJS, CSS
 
 ## Résumé
 
