@@ -7,10 +7,12 @@
 
 # Project
 
+Stack utilisée : Vanilla JS (ES6), NodeJS
+
 ## Résumé
 
-Projet de groupe de ma formation de développeuse JavaScript
-Stack utilisée : Vanilla JS (ES6), NodeJS
+Projet de groupe de ma formation en développement JavaScript
+
 Mon rôle dans le projet a été de gérer toute la partie front (client) : filtres et affichage restaurants, scaling restaurants au click, intégration responsive...
 
 ## Start
